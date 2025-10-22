@@ -1,0 +1,146 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  background: linear-gradient(to bottom right, #f6f8f5, #e8f5e9);
+  color: #333;
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d6edc3;
+  padding: 10px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #2c5e1a;
+}
+
+.logo img {
+  height: 55px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+.busqueda input {
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  width: 400px;
+  outline: none;
+}
+
+.busqueda button {
+  background-color: #98cc8f;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.busqueda button:hover {
+  background-color: #5f9a57;
+}
+
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.usuario a {
+  text-decoration: none;
+  color: #2c5e1a;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.usuario a:hover {
+  color: #1a4b10;
+}
+
+/* Banner */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-color: #d6edc3;
+  margin: 40px auto;
+  padding: 30px;
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  animation: slideUp 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(30px); }
+}
+
+.banner img {
+  width: 300px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.banner img:hover {
+  transform: scale(1.05);
+}
+
+.texto-banner {
+  max-width: 500px;
+  color: #2c5e1a;
+}
+
+/* Misión y Visión */
+.mision-vision {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease;
+}
+
+.bloque {
+  background-color: #e5f3db;
+  width: 80%;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bloque:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+h3 {
+  color: #2c5e1a;
+}
