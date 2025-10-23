@@ -1,0 +1,190 @@
+/* 🌿 ===== ESTILO GENERAL ===== */
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  background: #f6f8f5;
+  color: #333;
+}
+
+/* ====== ENCABEZADO PRINCIPAL ====== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0 30px;
+  height: 70px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2c5e1a;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 100px;
+  margin-top: 8px;
+}
+
+.logo span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ====== BÚSQUEDA ====== */
+.busqueda input {
+  padding: 10px;
+  border: 2px solid #7ab66f;
+  border-radius: 10px;
+  width: 400px;
+  background-color: #D7E0D2;
+}
+
+.busqueda button {
+  background-color: #98cc8f;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.busqueda button:hover {
+  background-color: #5f9a57;
+}
+
+/* ====== USUARIO ====== */
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.texto-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.texto-usuario a {
+  text-decoration: none;
+  color: #2c5e1a;
+  font-weight: 600;
+}
+
+.texto-usuario a:hover {
+  color: #1b4e1a;
+}
+
+.carrito {
+  font-size: 22px;
+}
+
+/* ====== BARRA DE CATEGORÍAS ====== */
+.categorias {
+  background-color: #A8CF8E;
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-categorias {
+  background-color: #6DAA43;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.btn-categorias:hover {
+  background-color: #568735;
+}
+
+/* ====== FORMULARIO DE REGISTRO ====== */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.registro-contenedor {
+  background-color: #f2f8ee;
+  border-radius: 15px;
+  padding: 40px 60px;
+  width: 900px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.registro-contenedor h2 {
+  color: #4d7c3f;
+  margin-bottom: 10px;
+}
+
+.registro-contenedor p {
+  color: #567b4a;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.campo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  color: #3a5a2a;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1.5px solid #8dbf7e;
+  outline: none;
+}
+
+.btn-registrar {
+  background-color: #6DAA43;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 50%;
+  margin: 20px auto 0;
+  transition: background-color 0.3s ease;
+}
+
+.btn-registrar:hover {
+  background-color: #568735;
+}

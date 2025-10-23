@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Supermercado La Fortuna</title>
+  <link rel="stylesheet" href="registro.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 🟩 ENCABEZADO PRINCIPAL -->
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo La Fortuna">
+      <span>Supermercado La Fortuna</span>
+    </div>
+
+    <div class="busqueda">
+      <input type="text" placeholder="¿Qué estás buscando?">
+      <button>🔍</button>
+    </div>
+
+    <div class="usuario">
+      <div class="texto-usuario">
+        <span class="saludo">¡Hola!</span>
+        <span class="login"><a href="iniciar-sesion.html">Inicia sesión</a></span>
+      </div>
+      <span class="carrito">🛒</span>
+    </div>
+  </header>
+
+  <!-- 🟢 ENCABEZADO SECUNDARIO -->
+  <div class="categorias">
+    <button class="btn-categorias">
+      <span class="icono">☰</span>
+      Todas las categorías
+      <span class="flecha">▼</span>
+    </button>
+  </div>
+
+  <!-- 🩶 FORMULARIO DE REGISTRO -->
+  <main>
+    <section class="registro-contenedor">
+      <h2>~ Registro ~</h2>
+      <p>Crea tu cuenta y disfruta de una compra fácil y confiable.</p>
+
+      <form>
+        <div class="fila">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Digita tu nombre" required>
+          </div>
+
+          <div class="campo">
+            <label for="apellido">Apellidos</label>
+            <input type="text" id="apellido" placeholder="Digita tus apellidos" required>
+          </div>
+        </div>
+
+        <div class="fila">
+          <div class="campo">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" placeholder="Digita tu correo electrónico" required>
+          </div>
+
+          <div class="campo">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" placeholder="Digita tu contraseña" required>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="confirmar">Confirmar Contraseña</label>
+          <input type="password" id="confirmar" placeholder="Digita tu contraseña" required>
+        </div>
+
+        <button type="submit" class="btn-registrar">Completar Registro</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

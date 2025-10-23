@@ -1,87 +1,178 @@
+/* 🌼 ===== ESTILO GENERAL DEL DOCUMENTO ===== */
 body {
-  font-family: 'Quicksand', sans-serif;
-  margin: 0;
-  background: linear-gradient(to bottom right, #f6f8f5, #e8f5e9);
-  color: #333;
-  animation: fadeIn 1.2s ease;
+  font-family: 'Quicksand', sans-serif; /* Fuente principal */
+  margin: 0;                            /* Quita márgenes por defecto */
+  background: linear-gradient(to bottom right, #f6f8f5, #e8f5e9); /* Fondo con degradado */
+  color: #333;                          /* Color general del texto */
+  animation: fadeIn 1.2s ease;          /* Efecto de aparición suave */
 }
 
+/* ✨ Animación de entrada general (para todo el body) */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Header */
+
+/* 🌿 ===== ENCABEZADO PRINCIPAL (HEADER) ===== */
 header {
-  display: flex;
+  display: flex;                        /* Coloca los elementos en fila */
+  height: 70px; /* altura fija */
+  justify-content: space-between;       /* Espacia el logo, la búsqueda y el usuario */
+  align-items: center;                  /* Centra verticalmente los elementos */
+  background-color: #ffffff;            /* Color verde claro */
   justify-content: space-between;
-  align-items: center;
-  background-color: #d6edc3;
-  padding: 10px 30px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
+  padding: 0 30px;                   /* Espaciado interno */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);/* Sombra inferior */
+  position: sticky;                     /* Mantiene el header fijo al hacer scroll */
   top: 0;
-  z-index: 100;
+  z-index: 100;                         /* Se mantiene encima de otros elementos */
 }
 
+
+/* 🍀 ===== LOGO Y NOMBRE DEL SUPERMERCADO ===== */
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
   font-weight: bold;
-  color: #2c5e1a;
+  color: #2c5e1a;                       /* Verde más oscuro para el texto */
 }
 
 .logo img {
-  height: 55px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
+  height: 100px;                         /*  Hace el logo circular */
+  transition: transform 0.3s ease;      /* Efecto de animación al pasar el mouse */
+  margin-top: 8px; /* 🔹 baja el logo ligeramente */
+}
+
+.logo span {
+  font-size: 18px;        /* 🔹 Aumenta o reduce según quieras */
+  font-weight: 700;       /* 🔹 Hace la letra más gruesa */
+  color: #2c5e1a;         /* 🔹 Mantiene el tono verde */
+  margin-top: 5px;        /* 🔹 Lo baja un poquito si se ve muy arriba */
+  transition: transform 0.3s ease;  
+}
+.logo span:hover {
+  transform: scale(1.07);                /* Hace zoom suave al pasar el mouse */
 }
 
 .logo img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1);                /* Hace zoom suave al pasar el mouse */
 }
 
+
+/* 🔍 ===== BARRA DE BÚSQUEDA ===== */
 .busqueda input {
-  padding: 8px;
-  border: none;
+  padding: 10px;
+  border: 2px solid #7ab66f;
   border-radius: 10px;
-  width: 400px;
+  width: 400px;                         /* Ancho del campo de búsqueda */
   outline: none;
+  background-color: #D7E0D2;
+  transition: border-color 0,3 ease;                        /* Quita el borde azul al seleccionar */
+}
+
+.busqueda input:focus {
+  border-color: #5f9a57;         /* Verde más oscuro cuando está activo */
 }
 
 .busqueda button {
-  background-color: #98cc8f;
+  background-color: #98cc8f;            /* Color del botón de búsqueda */
   border: none;
-  padding: 8px 12px;
+  padding: 10px 12px;
   border-radius: 10px;
   cursor: pointer;
-  color: white;
+  color: #d1edcc;
   transition: background-color 0.3s ease;
 }
 
 .busqueda button:hover {
-  background-color: #5f9a57;
+  background-color: #5f9a57;            /* Efecto al pasar el mouse */
 }
 
+
+/* 👤 ===== SECCIÓN DE USUARIO (HOLA, LOGIN, CARRITO) ===== */
 .usuario {
-  display: flex;
+  display: flex;                        /* Pone texto y carrito en línea */
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.usuario a {
+.texto-usuario {
+  display: flex;
+  flex-direction: column;               /* Muestra “Hola” y “Inicia sesión” uno debajo del otro */
+  align-items: flex-start;              /* Alinea el texto a la izquierda */
+  margin-right: 2000;
+}
+
+.saludo {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.login {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.login a {
   text-decoration: none;
-  color: #2c5e1a;
+  color: #333;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
-.usuario a:hover {
-  color: #1a4b10;
+.login a:hover {
+  color: #5f9a57; /* cambia a un verde más oscuro al pasar el mouse */
 }
 
-/* Banner */
+.carrito {
+  font-size: 22px;                      /* Tamaño del ícono 🛒 */
+}
+
+/* 📂 ===== BARRA DE CATEGORÍAS ===== */ 
+.categorias {
+  background-color: #A8CF8E;       /* Verde suave */
+  padding: 6px 20px;              /* Espaciado interior */
+  display: flex;
+  align-items: center;
+}
+
+.btn-categorias {
+  background-color: #6DAA43;        /* Verde más fuerte */
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-categorias:hover {
+  background-color: #568735;        /* Color más oscuro al pasar el mouse */
+}
+
+/* Ícono del botón */
+.icono {
+  font-size: 18px;
+}
+
+/* Flecha ▼ del botón */
+.flecha {
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+
+/* 🛒 ===== SECCIÓN BANNER (IMAGEN + TEXTO PRINCIPAL) ===== */
 .banner {
   display: flex;
   align-items: center;
@@ -97,9 +188,10 @@ header {
   opacity: 0;
 }
 
+/* Efecto de entrada hacia arriba */
 @keyframes slideUp {
-  to { opacity: 1; transform: translateY(0); }
   from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .banner img {
@@ -117,7 +209,8 @@ header {
   color: #2c5e1a;
 }
 
-/* Misión y Visión */
+
+/* 🌱 ===== SECCIONES DE MISIÓN Y VISIÓN ===== */
 .mision-vision {
   display: flex;
   flex-direction: column;

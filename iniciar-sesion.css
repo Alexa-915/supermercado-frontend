@@ -1,0 +1,205 @@
+/* 🌼 ===== ESTILO GENERAL ===== */
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  background: #f6f8f5;
+  color: #333;
+}
+
+/* ====== ENCABEZADO PRINCIPAL ====== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0 30px;
+  height: 70px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #2c5e1a;
+}
+
+.logo img {
+  height: 100px;
+  margin-top: 8px;
+}
+
+.logo span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c5e1a;
+  margin-top: 5px;
+}
+
+/* ====== BUSQUEDA ====== */
+.busqueda input {
+  padding: 10px;
+  border: 2px solid #7ab66f;
+  border-radius: 10px;
+  width: 400px;
+  background-color: #D7E0D2;
+}
+
+.busqueda button {
+  background-color: #98cc8f;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.busqueda button:hover {
+  background-color: #5f9a57;
+}
+
+/* ====== USUARIO ====== */
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.texto-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.saludo, .login {
+  color: #333;
+  font-weight: 600;
+}
+
+.carrito {
+  font-size: 22px;
+}
+
+/* ====== BARRA DE CATEGORÍAS ====== */
+.categorias {
+  background-color: #A8CF8E;
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-categorias {
+  background-color: #6DAA43;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.btn-categorias:hover {
+  background-color: #568735;
+}
+
+/* 🩶 ===== FORMULARIO DE INICIO DE SESIÓN ===== */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.login-contenedor {
+  background-color: #f2f8ee;
+  border-radius: 15px;
+  padding: 40px 60px;
+  width: 450px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.login-contenedor h2 {
+  color: #4d7c3f;
+  margin-bottom: 10px;
+}
+
+.login-contenedor p {
+  color: #567b4a;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  text-align: left;
+  font-weight: 600;
+  color: #3a5a2a;
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1.5px solid #8dbf7e;
+  outline: none;
+}
+
+.btn-iniciar {
+  background-color: #6DAA43;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-iniciar:hover {
+  background-color: #568735;
+}
+
+.btn-google {
+  background-color: white;
+  border: 1.5px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.google-icon {
+  width: 20px;
+}
+
+.registro {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.registro a {
+  color: #4d7c3f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.registro a:hover {
+  text-decoration: underline;
+}

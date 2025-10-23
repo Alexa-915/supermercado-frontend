@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio Sesión - Supermercado La Fortuna</title>
+  <link rel="stylesheet" href="iniciar-sesion.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 🟩 ENCABEZADO PRINCIPAL -->
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo La Fortuna">
+      <span>Supermercado La Fortuna</span>
+    </div>
+
+    <div class="busqueda">
+      <input type="text" placeholder="¿Qué estás buscando?">
+      <button>🔍</button>
+    </div>
+
+    <div class="usuario">
+      <div class="texto-usuario">
+        <span class="saludo">¡Hola!</span>
+        <span class="login">Inicia sesión o regístrate</span>
+      </div>
+      <span class="carrito">🛒</span>
+    </div>
+  </header>
+
+  <!-- 🟢 ENCABEZADO SECUNDARIO -->
+  <div class="categorias">
+    <button class="btn-categorias">
+      <span class="icono">☰</span>
+      Todas las categorías
+      <span class="flecha">▼</span>
+    </button>
+  </div>
+
+  <!-- 🩶 CONTENIDO PRINCIPAL: FORMULARIO DE INICIO DE SESIÓN -->
+  <main>
+    <section class="login-contenedor">
+      <h2>~ Inicia Sesión ~</h2>
+      <p>¡Qué bueno tenerte aquí!<br>Bienvenido a la Fortuna.</p>
+
+      <form>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Digita tu correo electrónico" required>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Digita tu contraseña" required>
+
+        <button type="submit" class="btn-iniciar">Iniciar Sesión</button>
+
+        <button type="button" class="btn-google">
+          <img src="img/google-icon.png" alt="Google" class="google-icon">
+          Continuar con Google
+        </button>
+      </form>
+
+      <p class="registro">
+        ¿No tienes cuenta? <a href="registro.html">¡Regístrate!</a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>
