@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio Sesión - Supermercado La Fortuna</title>
+  <title>Inicio de Sesión - Supermercado La Fortuna</title>
   <link rel="stylesheet" href="iniciar-sesion.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -23,7 +23,9 @@
     <div class="usuario">
       <div class="texto-usuario">
         <span class="saludo">¡Hola!</span>
-        <span class="login">Inicia sesión o regístrate</span>
+        <span class="login">
+          <a href="iniciar-sesion.html">Inicia sesión o regístrate</a>
+        </span>
       </div>
       <span class="carrito">🛒</span>
     </div>
@@ -38,25 +40,27 @@
     </button>
   </div>
 
-  <!-- 🩶 CONTENIDO PRINCIPAL: FORMULARIO DE INICIO DE SESIÓN -->
+  <!-- 🩶 FORMULARIO DE INICIO DE SESIÓN -->
   <main>
     <section class="login-contenedor">
       <h2>~ Inicia Sesión ~</h2>
-      <p>¡Qué bueno tenerte aquí!<br>Bienvenido a la Fortuna.</p>
+      <p>¡Qué bueno tenerte aquí!<br>Bienvenido a La Fortuna.</p>
 
-      <form>
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Digita tu correo electrónico" required>
+      <!-- 🔹 FORMULARIO FUNCIONAL -->
+      <form id="form-login">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" placeholder="Digita tu correo electrónico" required>
 
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" placeholder="Digita tu contraseña" required>
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" name="contrasena" placeholder="Digita tu contraseña" required>
 
         <button type="submit" class="btn-iniciar">Iniciar Sesión</button>
 
-        <button type="button" class="btn-google">
+        <!-- 🔹 BOTÓN GOOGLE -->
+        <a href="http://localhost:3001/auth/google" class="btn-google">
           <img src="img/google-icon.png" alt="Google" class="google-icon">
           Continuar con Google
-        </button>
+        </a>
       </form>
 
       <p class="registro">
@@ -64,5 +68,8 @@
       </p>
     </section>
   </main>
+
+  <!-- 🧩 Conexión con JS -->
+  <script src="js/login.js"></script>
 </body>
 </html>

@@ -76,6 +76,17 @@ header {
   align-items: flex-start;
 }
 
+.login a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.login a:hover {
+  color: #5f9a57; 
+}
+
 .saludo, .login {
   color: #333;
   font-weight: 600;
