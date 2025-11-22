@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio de Sesión - Supermercado La Fortuna</title>
-  <link rel="stylesheet" href="iniciar-sesion.css">
+  <title>Supermercado La Fortuna</title>
+  <link rel="stylesheet" href="inicio.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <!-- 🟩 ENCABEZADO PRINCIPAL -->
   <header>
+    <!-- 🍀 LOGO -->
     <div class="logo">
       <img src="img/logo.png" alt="Logo La Fortuna">
-      <span>Supermercado La Fortuna</span>
     </div>
 
+    <!-- 🚚 BOTÓN DE MÉTODO DE ENTREGA (NUEVO) -->
+    <button class="btn-delivery">
+      <img src="img/delivery-icon.png" alt="Delivery" class="delivery-icon">
+      <div class="delivery-texto">
+        <span class="delivery-label">Elige tu método de entrega</span>
+      </div>
+    </button>
+
+    <!-- 🔍 BÚSQUEDA -->
     <div class="busqueda">
       <input type="text" placeholder="¿Qué estás buscando?">
       <button>🔍</button>
     </div>
 
+    <!-- 👤 USUARIO -->
+
     <div class="usuario">
+      <a href="iniciar-sesion.html"><img src="img/icon-user.png" class="icon-user" alt="Usuario"></a>
       <div class="texto-usuario">
         <span class="saludo">¡Hola!</span>
         <span class="login">
           <a href="iniciar-sesion.html">Inicia sesión o regístrate</a>
         </span>
       </div>
-      <span class="carrito">🛒</span>
+      <img src="img/carrito.png" class="carrito" alt="Usuario">
     </div>
   </header>
 
-  <!-- 🟢 ENCABEZADO SECUNDARIO -->
+  <!-- ENCABEZADO SECUNDARIO -->
   <div class="categorias">
     <button class="btn-categorias">
       <span class="icono">☰</span>
