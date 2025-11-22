@@ -1,108 +1,148 @@
 /* 🌼 ===== ESTILO GENERAL DEL DOCUMENTO ===== */
 body {
-  font-family: 'Quicksand', sans-serif; /* Fuente principal */
-  margin: 0;                            /* Quita márgenes por defecto */
-  background: linear-gradient(to bottom right, #f6f8f5, #e8f5e9); /* Fondo con degradado */
-  color: #333;                          /* Color general del texto */
-  animation: fadeIn 1.2s ease;          /* Efecto de aparición suave */
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  background: linear-gradient(to bottom right, #f6f8f5, #e8f5e9);
+  color: #333;
+  animation: fadeIn 1.2s ease;
 }
 
-/* ✨ Animación de entrada general (para todo el body) */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-
 /* 🌿 ===== ENCABEZADO PRINCIPAL (HEADER) ===== */
 header {
-  display: flex;                        /* Coloca los elementos en fila */
-  height: 70px; /* altura fija */
-  justify-content: space-between;       /* Espacia el logo, la búsqueda y el usuario */
-  align-items: center;                  /* Centra verticalmente los elementos */
-  background-color: #ffffff;            /* Color verde claro */
+  display: flex;
+  height: 70px;
   justify-content: space-between;
-  padding: 0 30px;                   /* Espaciado interno */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);/* Sombra inferior */
-  position: sticky;                     /* Mantiene el header fijo al hacer scroll */
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
   top: 0;
-  z-index: 100;                         /* Se mantiene encima de otros elementos */
+  z-index: 100;
+  gap: 20px;
 }
 
-
-/* 🍀 ===== LOGO Y NOMBRE DEL SUPERMERCADO ===== */
+/* 🍀 ===== LOGO ===== */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: bold;
-  color: #2c5e1a;                       /* Verde más oscuro para el texto */
+  color: #2c5e1a;
 }
 
 .logo img {
-  height: 100px;                         /*  Hace el logo circular */
-  transition: transform 0.3s ease;      /* Efecto de animación al pasar el mouse */
-  margin-top: 8px; /* 🔹 baja el logo ligeramente */
-}
-
-.logo span {
-  font-size: 18px;        /* 🔹 Aumenta o reduce según quieras */
-  font-weight: 700;       /* 🔹 Hace la letra más gruesa */
-  color: #2c5e1a;         /* 🔹 Mantiene el tono verde */
-  margin-top: 5px;        /* 🔹 Lo baja un poquito si se ve muy arriba */
-  transition: transform 0.3s ease;  
-}
-.logo span:hover {
-  transform: scale(1.07);                /* Hace zoom suave al pasar el mouse */
+  height: 100px;
+  transition: transform 0.3s ease;
+  margin-top: 8px;
 }
 
 .logo img:hover {
-  transform: scale(1.1);                /* Hace zoom suave al pasar el mouse */
+  transform: scale(1.1);
 }
 
+/* 🚚 ===== BOTÓN DE DELIVERY ===== */
+.btn-delivery {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0; /* ✅ MEJORADO: ahora se ve el borde */
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+  margin-left: 30px; /* ✅ AÑADE ESTA LÍNEA */
+}
+
+.btn-delivery:hover {
+  background-color: #f5f5f5; /* ✅ MEJORADO: hover más sutil */
+  border-color: #6DAA43;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.delivery-icon {
+  width: 75px;
+  height: 40px;
+  object-fit: contain; /* ✅ AÑADIDO: mantiene proporción */
+}
+
+.delivery-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.delivery-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
 
 /* 🔍 ===== BARRA DE BÚSQUEDA ===== */
+.busqueda {
+  flex: 1;
+  display: flex;
+  gap: 5px;
+  margin-left: 50px; 
+}
+
 .busqueda input {
   padding: 10px;
   border: 2px solid #7ab66f;
   border-radius: 10px;
-  width: 400px;                         /* Ancho del campo de búsqueda */
+  width: 100%;
+  max-width: 400px;
   outline: none;
   background-color: #D7E0D2;
-  transition: border-color 0,3 ease;                        /* Quita el borde azul al seleccionar */
+  transition: border-color 0.3s ease;
 }
 
 .busqueda input:focus {
-  border-color: #5f9a57;         /* Verde más oscuro cuando está activo */
+  border-color: #5f9a57;
 }
 
 .busqueda button {
-  background-color: #98cc8f;            /* Color del botón de búsqueda */
+  background-color: #98cc8f;
   border: none;
   padding: 10px 12px;
   border-radius: 10px;
   cursor: pointer;
-  color: #d1edcc;
+  color: white;
   transition: background-color 0.3s ease;
 }
 
 .busqueda button:hover {
-  background-color: #5f9a57;            /* Efecto al pasar el mouse */
+  background-color: #5f9a57;
 }
 
+/* 👤 ===== SECCIÓN DE USUARIO ===== */
+.icon-user {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease; /* ✅ AÑADIDO: hover suave */
+  cursor: pointer;
+}
 
-/* 👤 ===== SECCIÓN DE USUARIO (HOLA, LOGIN, CARRITO) ===== */
+.icon-user:hover {
+  transform: scale(1.1);
+}
+
 .usuario {
-  display: flex;                        
+  display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .texto-usuario {
   display: flex;
-  flex-direction: column;              
-  align-items: flex-start;              
-  margin-right: 2000;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 15px; /* ✅ AJUSTADO: espacio más balanceado */
 }
 
 .saludo {
@@ -112,36 +152,42 @@ header {
 }
 
 .login {
-  font-size: 16px;
+  font-size: 16px; /* ✅ AJUSTADO: un poco más pequeño que el saludo */
   color: #333;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .login a {
   text-decoration: none;
   color: #333;
-  font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .login a:hover {
-  color: #5f9a57; /* cambia a un verde más oscuro al pasar el mouse */
+  color: #5f9a57;
 }
 
 .carrito {
-  font-size: 22px;                      /* Tamaño del ícono 🛒 */
+  width: 43px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.carrito:hover {
+  transform: scale(1.15); /* ✅ AJUSTADO: menos brusco */
 }
 
 /* 📂 ===== BARRA DE CATEGORÍAS ===== */ 
 .categorias {
-  background-color: #A8CF8E;       /* Verde suave */
-  padding: 6px 20px;              /* Espaciado interior */
+  background-color: #A8CF8E;
+  padding: 6px 20px;
   display: flex;
   align-items: center;
 }
 
 .btn-categorias {
-  background-color: #6DAA43;        /* Verde más fuerte */
+  background-color: #6DAA43;
   border: none;
   color: white;
   font-weight: 600;
@@ -157,22 +203,19 @@ header {
 }
 
 .btn-categorias:hover {
-  background-color: #568735;        /* Color más oscuro al pasar el mouse */
+  background-color: #568735;
 }
 
-/* Ícono del botón */
 .icono {
   font-size: 18px;
 }
 
-/* Flecha ▼ del botón */
 .flecha {
   font-size: 13px;
   margin-left: 5px;
 }
 
-
-/* 🛒 ===== SECCIÓN BANNER (IMAGEN + TEXTO PRINCIPAL) ===== */
+/* 🛒 ===== SECCIÓN BANNER ===== */
 .banner {
   display: flex;
   align-items: center;
@@ -188,7 +231,6 @@ header {
   opacity: 0;
 }
 
-/* Efecto de entrada hacia arriba */
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -208,7 +250,6 @@ header {
   max-width: 500px;
   color: #2c5e1a;
 }
-
 
 /* 🌱 ===== SECCIONES DE MISIÓN Y VISIÓN ===== */
 .mision-vision {
@@ -238,3 +279,23 @@ h3 {
   color: #2c5e1a;
 }
 
+/* 📱 ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 15px;
+  }
+
+  .btn-delivery {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .busqueda {
+    order: 2;
+    width: 100%;
+    margin-top: 10px;
+  }
+}

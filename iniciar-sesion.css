@@ -1,52 +1,109 @@
-/* 🌼 ===== ESTILO GENERAL ===== */
+/* 🌼 ===== ESTILO GENERAL DEL DOCUMENTO ===== */
 body {
   font-family: 'Quicksand', sans-serif;
   margin: 0;
-  background: #f6f8f5;
+  background: linear-gradient(to bottom right, #f6f8f5, #e8f5e9);
   color: #333;
+  animation: fadeIn 1.2s ease;
 }
 
-/* ====== ENCABEZADO PRINCIPAL ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌿 ===== ENCABEZADO PRINCIPAL (HEADER) ===== */
 header {
   display: flex;
+  height: 70px;
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
   padding: 0 30px;
-  height: 70px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 100;
+  gap: 20px; /* 🔹 Espacio entre elementos */
 }
 
+/* 🍀 ===== LOGO ===== */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: bold;
   color: #2c5e1a;
 }
 
 .logo img {
   height: 100px;
+  transition: transform 0.3s ease;
   margin-top: 8px;
 }
 
-.logo span {
-  font-size: 18px;
-  font-weight: 700;
-  color: #2c5e1a;
-  margin-top: 5px;
+.logo img:hover {
+  transform: scale(1.1);
 }
 
-/* ====== BUSQUEDA ====== */
+/* 🚚 ===== BOTÓN DE DELIVERY (NUEVO) ===== */
+.btn-delivery {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.btn-delivery:hover {
+  background-color: #e8f5e9;
+  border-color: #6DAA43;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.delivery-icon {
+  width: 75px;
+  height: 40px;
+  max-height: 100%;
+}
+
+
+.delivery-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.delivery-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 🔍 ===== BARRA DE BÚSQUEDA ===== */
+.busqueda {
+  flex: 1; /* 🔹 Ocupa el espacio disponible */
+  display: flex;
+  gap: 5px;
+}
+
 .busqueda input {
   padding: 10px;
   border: 2px solid #7ab66f;
   border-radius: 10px;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
+  outline: none;
   background-color: #D7E0D2;
+  transition: border-color 0.3s ease;
+}
+
+.busqueda input:focus {
+  border-color: #5f9a57;
 }
 
 .busqueda button {
@@ -57,13 +114,20 @@ header {
   cursor: pointer;
   color: white;
   transition: background-color 0.3s ease;
+
 }
 
 .busqueda button:hover {
   background-color: #5f9a57;
 }
 
-/* ====== USUARIO ====== */
+/* 👤 ===== SECCIÓN DE USUARIO ===== */
+
+.icon-user {
+  width: 40px;
+  height: 40px;
+}
+
 .usuario {
   display: flex;
   align-items: center;
@@ -74,6 +138,20 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-right: 35px;
+}
+
+.saludo {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  margin-right: 35px;
+}
+
+.login {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
 }
 
 .login a {
@@ -84,19 +162,23 @@ header {
 }
 
 .login a:hover {
-  color: #5f9a57; 
-}
-
-.saludo, .login {
-  color: #333;
-  font-weight: 600;
+  color: #5f9a57;
 }
 
 .carrito {
   font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 43px;
+  height: 40px;
+  margin-right: 5px;
 }
 
-/* ====== BARRA DE CATEGORÍAS ====== */
+.carrito:hover {
+  transform: scale(1.2);
+}
+
+/* 📂 ===== BARRA DE CATEGORÍAS ===== */ 
 .categorias {
   background-color: #A8CF8E;
   padding: 6px 20px;
@@ -115,11 +197,22 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-family: 'Quicksand', sans-serif;
   font-size: 15px;
+  transition: background-color 0.3s ease;
 }
 
 .btn-categorias:hover {
   background-color: #568735;
+}
+
+.icono {
+  font-size: 18px;
+}
+
+.flecha {
+  font-size: 13px;
+  margin-left: 5px;
 }
 
 /* 🩶 ===== FORMULARIO DE INICIO DE SESIÓN ===== */
