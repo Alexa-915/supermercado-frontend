@@ -3,21 +3,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supermercado La Fortuna</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- Fuente moderna tipo la de tu ejemplo -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <title>La Fortuna - Tu familia merece lo mejor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --verde: #6DAA43;
+      --verde-claro: #7bc351;
+      --amarillo: #FFD93D;
+      --azul: #4ECDC4;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      overflow: hidden;
+    }
+
+    /* HERO DINÁMICO */
+    .hero-dinamico {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--verde) 0%, var(--azul) 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-dinamico:hover {
+      transform: scale(1.02);
+    }
+
+    .hero-dinamico::before {
+      content: '🍎';
+      position: absolute;
+      font-size: 150px;
+      top: 10%;
+      left: 10%;
+      opacity: 0.2;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-dinamico::after {
+      content: '🥕';
+      position: absolute;
+      font-size: 120px;
+      bottom: 15%;
+      right: 10%;
+      opacity: 0.2;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+    }
+
+    .hero-dinamico-content {
+      text-align: center;
+      color: white;
+      max-width: 900px;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 10px 25px;
+      border-radius: 50px;
+      display: inline-block;
+      font-weight: 600;
+      margin-bottom: 30px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-dinamico h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 72px;
+      font-weight: 800;
+      margin-bottom: 25px;
+      text-shadow: 0 5px 30px rgba(0,0,0,0.2);
+      line-height: 1.2;
+    }
+
+    .hero-dinamico .emoji-grande {
+      font-size: 100px;
+      display: block;
+      animation: floatPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes floatPulse {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-15px) scale(1.05);
+      }
+    }
+
+    .hero-dinamico h2 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      opacity: 0.95;
+    }
+
+    .hero-dinamico p {
+      font-size: 22px;
+      margin-bottom: 40px;
+      opacity: 0.95;
+    }
+
+    .hero-buttons-dinamico {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-dinamico {
+      padding: 18px 40px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .btn-dinamico-amarillo {
+      background: var(--amarillo);
+      color: #333;
+    }
+
+    .btn-dinamico-amarillo:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    .btn-dinamico-blanco {
+      background: white;
+      color: var(--verde);
+    }
+
+    .btn-dinamico-blanco:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    .click-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 14px;
+      opacity: 0.8;
+      animation: floatUpDown 2s infinite;
+      font-weight: 600;
+    }
+
+    @keyframes floatUpDown {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 10px); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-dinamico h1 {
+        font-size: 48px;
+      }
+
+      .hero-dinamico h2 {
+        font-size: 24px;
+      }
+
+      .hero-dinamico p {
+        font-size: 18px;
+      }
+
+      .hero-dinamico .emoji-grande {
+        font-size: 80px;
+      }
+
+      .hero-dinamico::before,
+      .hero-dinamico::after {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body class="bienvenida">
-  <div class="contenedor">
-    <h1>¡Bienvenido a La Fortuna!</h1>
-    <p>Aquí siempre te recibimos con una sonrisa y los mejores precios.</p>
-  </div>
+<body>
+  <!-- HERO CON REDIRECCIÓN -->
+  <section class="hero-dinamico" onclick="irAInicio()">
+    <div class="hero-dinamico-content">
+      <div class="hero-badge">✨ ¡Bienvenido a tu supermercado favorito!</div>
+      <h1>
+        <span class="emoji-grande">🛒</span>
+        La Fortuna
+      </h1>
+      <h2>¡Todo lo que tu familia necesita!</h2>
+      <p>Frescura, calidad y precios increíbles en un solo lugar</p>
+      <div class="hero-buttons-dinamico">
+        <a href="registro.html" class="btn-dinamico btn-dinamico-amarillo" onclick="event.stopPropagation()">¡Empezar a Comprar!</a>
+        <a href="iniciar-sesion.html" class="btn-dinamico btn-dinamico-blanco" onclick="event.stopPropagation()">Ya tengo cuenta</a>
+      </div>
+    </div>
+    <div class="click-indicator">
+      👆 Click en cualquier lugar para entrar
+    </div>
+  </section>
 
   <script>
-    // Hace que al hacer clic en cualquier parte, cambie a inicio.html
-    document.body.addEventListener('click', () => {
+    function irAInicio() {
+      // Redirige a inicio.html cuando se hace click
       window.location.href = 'inicio.html';
+    }
+
+    // Detectar tecla Enter también
+    document.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        irAInicio();
+      }
     });
   </script>
 </body>
