@@ -1,4 +1,10 @@
 /* 🌼 ===== ESTILO GENERAL DEL DOCUMENTO ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Quicksand', sans-serif;
   margin: 0;
@@ -50,17 +56,17 @@ header {
   align-items: center;
   gap: 10px;
   background-color: #ffffff;
-  border: 1px solid #e0e0e0; /* ✅ MEJORADO: ahora se ve el borde */
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 8px 15px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Quicksand', sans-serif;
-  margin-left: 30px; /* ✅ AÑADE ESTA LÍNEA */
+  margin-left: 30px;
 }
 
 .btn-delivery:hover {
-  background-color: #f5f5f5; /* ✅ MEJORADO: hover más sutil */
+  background-color: #f5f5f5;
   border-color: #6DAA43;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
@@ -68,7 +74,7 @@ header {
 .delivery-icon {
   width: 75px;
   height: 40px;
-  object-fit: contain; /* ✅ AÑADIDO: mantiene proporción */
+  object-fit: contain;
 }
 
 .delivery-texto {
@@ -124,7 +130,7 @@ header {
 .icon-user {
   width: 40px;
   height: 40px;
-  transition: transform 0.3s ease; /* ✅ AÑADIDO: hover suave */
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
@@ -142,7 +148,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-right: 15px; /* ✅ AJUSTADO: espacio más balanceado */
+  margin-right: 15px;
 }
 
 .saludo {
@@ -152,7 +158,7 @@ header {
 }
 
 .login {
-  font-size: 16px; /* ✅ AJUSTADO: un poco más pequeño que el saludo */
+  font-size: 16px;
   color: #333;
   font-weight: 500;
 }
@@ -175,15 +181,22 @@ header {
 }
 
 .carrito:hover {
-  transform: scale(1.15); /* ✅ AJUSTADO: menos brusco */
+  transform: scale(1.15);
 }
 
 /* 📂 ===== BARRA DE CATEGORÍAS ===== */ 
 .categorias {
   background-color: #A8CF8E;
   padding: 6px 20px;
-  display: flex;
-  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 50;
+}
+
+.categories-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .btn-categorias {
@@ -200,6 +213,7 @@ header {
   font-family: 'Quicksand', sans-serif;
   font-size: 15px;
   transition: background-color 0.3s ease;
+  margin-left: -38px;
 }
 
 .btn-categorias:hover {
@@ -213,6 +227,189 @@ header {
 .flecha {
   font-size: 13px;
   margin-left: 5px;
+  transition: transform 0.3s;
+}
+
+.btn-categorias.active .flecha {
+  transform: rotate(180deg);
+}
+
+/* 📋 ===== MENÚ DESPLEGABLE DE CATEGORÍAS ===== */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  width: 320px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'Quicksand', sans-serif;
+  justify-content: space-between;
+}
+
+.category-item:hover {
+  background: #f0f9ec;
+}
+
+.category-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.category-item:hover .category-icon {
+  transform: scale(1.1);
+}
+
+.category-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s;
+  flex: 1;
+}
+
+.category-item:hover .category-name {
+  color: #6DAA43;
+}
+
+.arrow-right {
+  font-size: 20px;
+  color: #999;
+  transition: all 0.3s;
+}
+
+.category-item:hover .arrow-right {
+  color: #6DAA43;
+  transform: translateX(3px);
+}
+
+/* 📋 ===== SUBMENÚ DE SUBCATEGORÍAS ===== */
+.submenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 340px;
+  background: #f8fcf5;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  width: 280px;
+  min-height: 300px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  border: 2px solid #e8f5e9;
+}
+
+.submenu.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.submenu-header {
+  background: linear-gradient(135deg, #6DAA43 0%, #5a8f37 100%);
+  padding: 20px;
+  border-radius: 13px 13px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
+
+.submenu-icon {
+  font-size: 28px;
+}
+
+.submenu-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+}
+
+.submenu-content {
+  padding: 15px 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.submenu-item {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.submenu-item:hover {
+  background: #e8f5e9;
+  color: #2c5e1a;
+  padding-left: 20px;
+}
+
+/* Scrollbar personalizado para el submenú */
+.submenu-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.submenu-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.submenu-content::-webkit-scrollbar-thumb {
+  background: #6DAA43;
+  border-radius: 10px;
+}
+
+.submenu-content::-webkit-scrollbar-thumb:hover {
+  background: #568735;
+}
+
+/* 🛒 ===== CONTENIDO PRINCIPAL ===== */
+main {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 30px;
 }
 
 /* 🛒 ===== SECCIÓN BANNER ===== */
@@ -224,7 +421,7 @@ header {
   background-color: #d6edc3;
   margin: 40px auto;
   padding: 30px;
-  width: 80%;
+  width: 100%;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   animation: slideUp 1s ease forwards;
@@ -251,6 +448,22 @@ header {
   color: #2c5e1a;
 }
 
+.texto-banner h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.texto-banner p {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.texto-banner strong {
+  color: #6DAA43;
+  font-weight: 700;
+}
+
 /* 🌱 ===== SECCIONES DE MISIÓN Y VISIÓN ===== */
 .mision-vision {
   display: flex;
@@ -263,8 +476,8 @@ header {
 
 .bloque {
   background-color: #e5f3db;
-  width: 80%;
-  padding: 20px;
+  width: 100%;
+  padding: 30px;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -275,11 +488,30 @@ header {
   box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
-h3 {
+.bloque h3 {
   color: #2c5e1a;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.bloque p {
+  color: #4a4a4a;
+  line-height: 1.8;
+  font-size: 16px;
 }
 
 /* 📱 ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .busqueda {
+    margin-left: 20px;
+  }
+  
+  .submenu {
+    left: 330px;
+  }
+}
+
 @media (max-width: 768px) {
   header {
     flex-wrap: wrap;
@@ -287,15 +519,125 @@ h3 {
     padding: 10px 15px;
   }
 
+  .logo img {
+    height: 60px;
+  }
+
   .btn-delivery {
     order: 3;
     width: 100%;
     justify-content: center;
+    margin-left: 0;
+    margin-top: 10px;
   }
 
   .busqueda {
     order: 2;
     width: 100%;
+    margin-left: 0;
     margin-top: 10px;
+  }
+
+  .busqueda input {
+    max-width: 100%;
+  }
+
+  .usuario {
+    gap: 8px;
+  }
+
+  .texto-usuario {
+    margin-right: 8px;
+  }
+
+  .saludo,
+  .login {
+    font-size: 14px;
+  }
+
+  .categorias {
+    padding: 10px 15px;
+  }
+
+  .dropdown-menu {
+    width: calc(100vw - 30px);
+    left: 15px;
+  }
+
+  .submenu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 350px;
+  }
+
+  .submenu.show {
+    transform: translate(-50%, -50%);
+  }
+
+  main {
+    padding: 0 15px;
+    margin: 30px auto;
+  }
+
+  .banner {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .banner img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .texto-banner {
+    max-width: 100%;
+  }
+
+  .texto-banner h2 {
+    font-size: 22px;
+  }
+
+  .texto-banner p {
+    font-size: 14px;
+  }
+
+  .bloque {
+    padding: 20px;
+  }
+
+  .bloque h3 {
+    font-size: 20px;
+  }
+
+  .bloque p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 50px;
+  }
+
+  .btn-categorias {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .icon-user,
+  .carrito {
+    width: 35px;
+    height: 35px;
+  }
+
+  .banner img {
+    max-width: 250px;
+  }
+
+  .texto-banner h2 {
+    font-size: 18px;
   }
 }
