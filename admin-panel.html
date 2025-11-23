@@ -1,0 +1,329 @@
+'EOFHTML'
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin - La Fortuna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin-panel-estilos.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <div class="logo-icon">🛒</div>
+          <div>
+            <div class="sidebar-title">La Fortuna</div>
+            <div class="sidebar-subtitle">Panel Admin</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Principal</div>
+        <div class="nav-item active" data-section="dashboard">
+          <span class="nav-icon">📊</span>
+          <span>Dashboard</span>
+        </div>
+
+        <div class="nav-section-title">Gestión</div>
+        <div class="nav-item" data-section="productos">
+          <span class="nav-icon">📦</span>
+          <span>Productos</span>
+        </div>
+        <div class="nav-item" data-section="pedidos">
+          <span class="nav-icon">🛍️</span>
+          <span>Gestión de Pedidos</span>
+        </div>
+        <div class="nav-item" data-section="inventario">
+          <span class="nav-icon">📋</span>
+          <span>Inventario</span>
+        </div>
+        <div class="nav-item" data-section="empleados">
+          <span class="nav-icon">👔</span>
+          <span>Gestión de Empleados</span>
+        </div>
+
+        <div class="nav-section-title">Otros</div>
+        <div class="nav-item" data-section="clientes">
+          <span class="nav-icon">👥</span>
+          <span>Clientes</span>
+        </div>
+      </nav>
+
+      <div class="logout-section">
+        <button class="btn-logout" id="btnLogout">
+          <span>🚪</span>
+          <span>Cerrar Sesión</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- Header -->
+      <div class="content-header">
+        <h1 class="header-title" id="pageTitle">Dashboard</h1>
+        <div class="admin-info">
+          <div class="admin-avatar" id="adminAvatar">A</div>
+          <div>
+            <div class="admin-name" id="adminName">Cargando...</div>
+            <div class="admin-role" id="adminRole">Administrador</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DASHBOARD -->
+      <div class="content-section active" id="section-dashboard">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Total Productos</span>
+              <div class="stat-icon blue">📦</div>
+            </div>
+            <div class="stat-number" id="totalProductos">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Pedidos Pendientes</span>
+              <div class="stat-icon yellow">🛍️</div>
+            </div>
+            <div class="stat-number" id="pedidosPendientes">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Stock Bajo</span>
+              <div class="stat-icon red">⚠️</div>
+            </div>
+            <div class="stat-number" id="stockBajo">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Empleados Activos</span>
+              <div class="stat-icon green">👔</div>
+            </div>
+            <div class="stat-number" id="empleadosActivos">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCTOS -->
+      <div class="content-section" id="section-productos">
+        <div class="filters-container">
+          <div class="filter-group">
+            <label class="filter-label">Categoría Principal</label>
+            <select class="filter-select" id="filterCategoria">
+              <option value="">Todas las categorías</option>
+              <option value="frutas">🥬 Frutas y Verduras</option>
+              <option value="carnes">🥩 Carnes y Pescados</option>
+              <option value="lacteos">🥛 Lácteos y Huevos</option>
+              <option value="panaderia">🥖 Panadería</option>
+              <option value="dulces">🍬 Dulces</option>
+              <option value="limpieza">🧹 Limpieza y Hogar</option>
+              <option value="mascotas">🐕 Mascotas</option>
+              <option value="bebidas">🥤 Bebidas</option>
+              <option value="aseo">🧴 Aseo Personal</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Subcategoría</label>
+            <select class="filter-select" id="filterSubcategoria">
+              <option value="">Todas las subcategorías</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Buscar</label>
+            <input type="text" class="filter-search" id="searchProducto" placeholder="Buscar por nombre...">
+          </div>
+        </div>
+        <div class="table-container">
+          <div class="table-header">
+            <h2 class="table-title">Lista de Productos</h2>
+            <button class="btn-primary" id="btnNuevoProducto">➕ Nuevo Producto</button>
+          </div>
+          <div id="productosTable">
+            <div class="loading"><div class="spinner"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PEDIDOS -->
+      <div class="content-section" id="section-pedidos">
+        <div class="filters-container">
+          <div class="filter-group">
+            <label class="filter-label">Estado</label>
+            <select class="filter-select" id="filterEstadoPedido">
+              <option value="">Todos los estados</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="preparando">Preparando</option>
+              <option value="enviado">Enviado</option>
+              <option value="entregado">Entregado</option>
+              <option value="cancelado">Cancelado</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Fecha</label>
+            <input type="date" class="filter-search" id="filterFechaPedido">
+          </div>
+        </div>
+        <div class="table-container">
+          <div class="table-header">
+            <h2 class="table-title">Gestión de Pedidos</h2>
+          </div>
+          <div id="pedidosTable">
+            <div class="loading"><div class="spinner"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INVENTARIO -->
+      <div class="content-section" id="section-inventario">
+        <div class="filters-container">
+          <div class="filter-group">
+            <label class="filter-label">Ver</label>
+            <select class="filter-select" id="filterInventario">
+              <option value="todos">Todos los productos</option>
+              <option value="bajo">Stock bajo (< 10)</option>
+              <option value="agotado">Agotados (0)</option>
+              <option value="suficiente">Stock suficiente (> 10)</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-container">
+          <div class="table-header">
+            <h2 class="table-title">Control de Inventario</h2>
+          </div>
+          <div id="inventarioTable">
+            <div class="loading"><div class="spinner"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMPLEADOS -->
+      <div class="content-section" id="section-empleados">
+        <div class="table-container">
+          <div class="table-header">
+            <h2 class="table-title">Gestión de Empleados</h2>
+            <button class="btn-primary" id="btnNuevoEmpleado">➕ Nuevo Empleado</button>
+          </div>
+          <div id="empleadosTable">
+            <div class="loading"><div class="spinner"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLIENTES -->
+      <div class="content-section" id="section-clientes">
+        <div class="table-container">
+          <div class="table-header">
+            <h2 class="table-title">Lista de Clientes</h2>
+          </div>
+          <div id="clientesTable">
+            <div class="loading"><div class="spinner"></div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL PRODUCTO -->
+  <div class="modal" id="modalProducto">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Nuevo Producto</h2>
+        <button class="modal-close" onclick="cerrarModal('modalProducto')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-input" id="productoNombre" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Descripción</label>
+          <textarea class="form-input" id="productoDescripcion"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Precio</label>
+          <input type="number" class="form-input" id="productoPrecio" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Stock</label>
+          <input type="number" class="form-input" id="productoStock" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Categoría</label>
+          <select class="form-input" id="productoCategoria" required>
+            <option value="">Selecciona</option>
+            <option value="Frutas y Verduras">🥬 Frutas y Verduras</option>
+            <option value="Carnes y Pescados">🥩 Carnes y Pescados</option>
+            <option value="Lácteos y Huevos">🥛 Lácteos</option>
+            <option value="Panadería">🥖 Panadería</option>
+            <option value="Dulces">🍬 Dulces</option>
+            <option value="Limpieza y Hogar">🧹 Limpieza</option>
+            <option value="Mascotas">🐕 Mascotas</option>
+            <option value="Bebidas">🥤 Bebidas</option>
+            <option value="Aseo Personal">🧴 Aseo</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Imagen URL</label>
+          <input type="text" class="form-input" id="productoImagen">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="cerrarModal('modalProducto')">Cancelar</button>
+        <button class="btn-primary" onclick="guardarProducto()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL EMPLEADO -->
+  <div class="modal" id="modalEmpleado">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Nuevo Empleado</h2>
+        <button class="modal-close" onclick="cerrarModal('modalEmpleado')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Nombre Completo</label>
+          <input type="text" class="form-input" id="empleadoNombre" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Correo</label>
+          <input type="email" class="form-input" id="empleadoCorreo" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Teléfono</label>
+          <input type="tel" class="form-input" id="empleadoTelefono">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cargo</label>
+          <select class="form-input" id="empleadoCargo" required>
+            <option value="">Selecciona</option>
+            <option value="Cajero">Cajero</option>
+            <option value="Empacador">Empacador</option>
+            <option value="Supervisor">Supervisor</option>
+            <option value="Almacenista">Almacenista</option>
+            <option value="Repartidor">Repartidor</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Salario</label>
+          <input type="number" class="form-input" id="empleadoSalario" step="0.01" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="cerrarModal('modalEmpleado')">Cancelar</button>
+        <button class="btn-primary" onclick="guardarEmpleado()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin-panel-completo.js"></script>
+</body>
+</html>
+EOFHTML
