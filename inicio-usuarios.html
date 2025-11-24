@@ -45,7 +45,7 @@
     </div>
   </header>
 
-  <!-- ✅ BARRA DE CATEGORÍAS CON SISTEMA COMPLETO (versión de tu compañera) -->
+  <!-- ✅ BARRA DE CATEGORÍAS CON SISTEMA COMPLETO -->
   <div class="categorias">
     <div class="categories-container">
       <!-- Botón principal de categorías -->
@@ -85,10 +85,17 @@
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Dulces -->
+        <!-- Bebidas -->
+        <button class="category-item" data-category="bebidas">
+          <div class="category-icon" style="background: #00BCD420; color: #00BCD4;">🥤</div>
+          <span class="category-name">Bebidas</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <!-- Dulces y Snacks -->
         <button class="category-item" data-category="dulces">
           <div class="category-icon" style="background: #E91E6320; color: #E91E63;">🍬</div>
-          <span class="category-name">Dulces</span>
+          <span class="category-name">Dulces y Snacks</span>
           <span class="arrow-right">›</span>
         </button>
 
@@ -106,17 +113,17 @@
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Bebidas -->
-        <button class="category-item" data-category="bebidas">
-          <div class="category-icon" style="background: #00BCD420; color: #00BCD4;">🥤</div>
-          <span class="category-name">Bebidas</span>
+        <!-- Granos y Empaquetados -->
+        <button class="category-item" data-category="granos">
+          <div class="category-icon" style="background: #8D6E6320; color: #8D6E63;">🍚</div>
+          <span class="category-name">Granos y Empaquetados</span>
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Aseo personal -->
-        <button class="category-item" data-category="aseo">
-          <div class="category-icon" style="background: #FFC10720; color: #FFC107;">🧴</div>
-          <span class="category-name">Aseo personal</span>
+        <!-- Cocina y Hogar -->
+        <button class="category-item" data-category="hogar">
+          <div class="category-icon" style="background: #60798020; color: #607980;">🍽</div>
+          <span class="category-name">Cocina y Hogar</span>
           <span class="arrow-right">›</span>
         </button>
       </div>
@@ -168,126 +175,63 @@
   <!-- ✅ NUEVO: SCRIPT PARA VERIFICAR SESIÓN Y MOSTRAR NOMBRE -->
   <script src="js/inicio-usuarios.js"></script>
 
-  <!-- ✅ JAVASCRIPT PARA CATEGORÍAS (sistema completo de tu compañera) -->
+  <!-- ✅ JAVASCRIPT PARA CATEGORÍAS (sistema completo) -->
   <script>
     // 📋 Datos de subcategorías para cada categoría
     const subcategorias = {
       frutas: {
         titulo: 'Frutas y Verduras',
         icono: '🥬',
-        items: [
-          'General',
-          'Frutas frescas',
-          'Verduras frescas',
-          'Hierbas y aromáticas',
-          'Ensaladas listas',
-          'Frutas secas'
-        ]
+        items: ['General', 'Frutas frescas', 'Verduras frescas', 'Hierbas y aromáticas', 'Ensaladas listas', 'Frutas secas']
       },
       carnes: {
         titulo: 'Carnes y Pescados',
         icono: '🥩',
-        items: [
-          'General',
-          'Carnes de res',
-          'Pollo y aves',
-          'Cerdo',
-          'Pescados',
-          'Mariscos',
-          'Embutidos'
-        ]
+        items: ['General', 'Carnes frescas', 'Pollo', 'Cerdo', 'Pescados y mariscos', 'Embutidos', 'Carnes frías']
       },
       lacteos: {
         titulo: 'Lácteos y Huevos',
         icono: '🥛',
-        items: [
-          'General',
-          'Leche',
-          'Yogurt',
-          'Quesos',
-          'Mantequilla y margarina',
-          'Huevos',
-          'Crema de leche'
-        ]
+        items: ['General', 'Leche', 'Queso', 'Yogurt', 'Mantequilla', 'Crema', 'Huevos']
       },
       panaderia: {
         titulo: 'Panadería',
         icono: '🥖',
-        items: [
-          'General',
-          'Pan fresco',
-          'Pan empacado',
-          'Pasteles y tortas',
-          'Galletas',
-          'Productos de repostería'
-        ]
-      },
-      dulces: {
-        titulo: 'Dulces',
-        icono: '🍬',
-        items: [
-          'General',
-          'Chocolates',
-          'Caramelos',
-          'Gomitas',
-          'Snacks dulces',
-          'Postres'
-        ]
-      },
-      limpieza: {
-        titulo: 'Limpieza y hogar',
-        icono: '🧹',
-        items: [
-          'General',
-          'Limpieza de pisos',
-          'Limpieza de baño',
-          'Limpieza de cocina',
-          'Detergentes',
-          'Desinfectantes',
-          'Papel higiénico y toallas'
-        ]
-      },
-      mascotas: {
-        titulo: 'Mascotas',
-        icono: '🐕',
-        items: [
-          'General',
-          'Alimento para perros',
-          'Alimento para gatos',
-          'Snacks y premios',
-          'Higiene',
-          'Accesorios'
-        ]
+        items: ['General', 'Pan fresco', 'Ponqués y tortas', 'Galletas', 'Pasabocas', 'Pan tajado']
       },
       bebidas: {
         titulo: 'Bebidas',
         icono: '🥤',
-        items: [
-          'General',
-          'Jugos naturales',
-          'Gaseosas',
-          'Agua',
-          'Bebidas energéticas',
-          'Té y café',
-          'Bebidas alcohólicas'
-        ]
+        items: ['General', 'Gaseosas', 'Jugos', 'Café e infusiones', 'Bebidas energéticas', 'Aguas', 'Bebidas alcohólicas']
       },
-      aseo: {
-        titulo: 'Aseo personal',
-        icono: '🧴',
-        items: [
-          'General',
-          'Jabones y geles',
-          'Shampoo y acondicionador',
-          'Cuidado dental',
-          'Desodorantes',
-          'Cuidado de la piel',
-          'Afeitado'
-        ]
+      dulces: {
+        titulo: 'Dulces y Snacks',
+        icono: '🍬',
+        items: ['General', 'Chocolates', 'Gomas y caramelos', 'Snacks y papas', 'Galletas dulces', 'Postres']
+      },
+      limpieza: {
+        titulo: 'Limpieza y Hogar',
+        icono: '🧹',
+        items: ['General', 'Lavado de ropa', 'Aseo general', 'Baño', 'Cocina', 'Detergentes', 'Ambientadores']
+      },
+      mascotas: {
+        titulo: 'Mascotas',
+        icono: '🐕',
+        items: ['General', 'Perros', 'Gatos', 'Snacks', 'Arena y accesorios']
+      },
+      granos: {
+        titulo: 'Granos y Empaquetados',
+        icono: '🍚',
+        items: ['General', 'Arroz', 'Lentejas', 'Fríjoles', 'Garbanzos', 'Maíz', 'Avena y cereales', 'Otros empaquetados']
+      },
+      hogar: {
+        titulo: 'Cocina y Hogar',
+        icono: '🍽',
+        items: ['General', 'Utensilios de cocina', 'Vajillas', 'Cubiertos', 'Organización', 'Hogar y decoración']
       }
     };
 
-    // 🎯 Funcionalidad del menú desplegable
+    // 🎯 Elementos del DOM
     const btnCategories = document.getElementById('btnCategories');
     const dropdownMenu = document.getElementById('dropdownMenu');
     const submenu = document.getElementById('submenu');

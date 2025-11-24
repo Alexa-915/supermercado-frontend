@@ -17,8 +17,8 @@
       </a>
     </div>
 
-    <!-- 🚚 BOTÓN DE MÉTODO DE ENTREGA -->
-    <button class="btn-delivery">
+    <!-- 🚚 BOTÓN DE MÉTODO DE ENTREGA CON FUNCIONALIDAD -->
+    <button class="btn-delivery" onclick="abrirMetodoEntrega()">
       <img src="img/delivery-icon.png" alt="Delivery" class="delivery-icon">
       <div class="delivery-texto">
         <span class="delivery-label">Elige tu método de entrega</span>
@@ -148,6 +148,18 @@
     </section>
   </main>
 
+<!-- ✅ MODAL DE MÉTODO DE ENTREGA -->
+  <div class="modal-overlay" id="modalEntrega">
+    <div class="modal-content-delivery">
+      <button class="modal-close" onclick="cerrarModalEntrega()">✕</button>
+      <div class="modal-icon-warning">⚠️</div>
+      <h3>Inicia sesión para continuar</h3>
+      <p>Debes iniciar sesión para seleccionar un método de entrega.</p>
+      <button class="btn-modal-primary" onclick="irALogin()">Iniciar Sesión</button>
+      <button class="btn-modal-secondary" onclick="cerrarModalEntrega()">Cancelar</button>
+    </div>
+  </div>
+
   <script src="js/login.js"></script>
 
   <!-- ✅ JAVASCRIPT PARA CATEGORÍAS CON REDIRECCIÓN FUNCIONANDO -->
@@ -261,11 +273,55 @@
       submenu.classList.add('show');
     });
 
-    // ✅ FUNCIÓN CORREGIDA - Redirige a productos.html
     function filtrarSubcategoria(categoria, subcategoria) {
       console.log('📁 Categoría:', categoria, '| 📂 Subcategoría:', subcategoria);
       window.location.href = `productos.html?categoria=${categoria}&subcategoria=${encodeURIComponent(subcategoria)}`;
     }
+
+  // ✅ FUNCIONALIDAD DEL MODAL DE ENTREGA
+  
+  // Verificar si el usuario está logueado
+  function verificarSesion() {
+    const clienteId = localStorage.getItem('clienteId');
+    const clienteNombre = localStorage.getItem('clienteNombre');
+    return clienteId && clienteNombre;
+  }
+
+  // Abrir modal de método de entrega
+  function abrirMetodoEntrega() {
+    if (verificarSesion()) {
+      // Si está logueado, abrir selector de método de entrega
+      alert('Aquí irá el selector de método de entrega (por implementar)');
+      // Cuando lo implementes: window.location.href = 'metodo-entrega.html';
+    } else {
+      // Si NO está logueado, mostrar modal de advertencia
+      document.getElementById('modalEntrega').classList.add('show');
+    }
+  }
+
+  // Cerrar modal
+  function cerrarModalEntrega() {
+    document.getElementById('modalEntrega').classList.remove('show');
+  }
+
+  // Ir a login
+  function irALogin() {
+    window.location.href = 'iniciar-sesion.html';
+  }
+
+  // Cerrar modal al hacer clic fuera
+  document.getElementById('modalEntrega').addEventListener('click', (e) => {
+    if (e.target.id === 'modalEntrega') {
+      cerrarModalEntrega();
+    }
+  });
+
+  // Cerrar modal con tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      cerrarModalEntrega();
+    }
+  });
   </script>
 </body>
 </html>

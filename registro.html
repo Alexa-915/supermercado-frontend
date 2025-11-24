@@ -11,11 +11,13 @@
   <header>
     <!-- 🍀 LOGO -->
     <div class="logo">
-      <img src="img/logo.png" alt="Logo La Fortuna">
+      <a href="inicio.html">
+        <img src="img/logo.png" alt="Logo La Fortuna">
+      </a>
     </div>
 
-    <!-- 🚚 BOTÓN DE MÉTODO DE ENTREGA -->
-    <button class="btn-delivery">
+    <!-- 🚚 BOTÓN DE MÉTODO DE ENTREGA CON FUNCIONALIDAD -->
+    <button class="btn-delivery" onclick="abrirMetodoEntrega()">
       <img src="img/delivery-icon.png" alt="Delivery" class="delivery-icon">
       <div class="delivery-texto">
         <span class="delivery-label">Elige tu método de entrega</span>
@@ -43,13 +45,87 @@
     </div>
   </header>
 
-  <!-- ENCABEZADO SECUNDARIO -->
+  <!-- ENCABEZADO SECUNDARIO CON FUNCIONALIDAD DE CATEGORÍAS -->
   <div class="categorias">
-    <button class="btn-categorias">
-      <span class="icono">☰</span>
-      Todas las categorías
-      <span class="flecha">▼</span>
-    </button>
+    <div class="categories-container">
+      <button class="btn-categorias" id="btnCategories">
+        <span class="icono">☰</span>
+        Todas las categorías
+        <span class="flecha">▼</span>
+      </button>
+
+      <!-- Menú desplegable de categorías -->
+      <div class="dropdown-menu" id="dropdownMenu">
+        <button class="category-item" data-category="frutas">
+          <div class="category-icon" style="background: #4CAF5020; color: #4CAF50;">🥬</div>
+          <span class="category-name">Frutas y verduras</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <button class="category-item" data-category="carnes">
+          <div class="category-icon" style="background: #F4433620; color: #F44336;">🥩</div>
+          <span class="category-name">Carnes y Pescados</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <button class="category-item" data-category="lacteos">
+          <div class="category-icon" style="background: #2196F320; color: #2196F3;">🥛</div>
+          <span class="category-name">Lácteos y Huevos</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <button class="category-item" data-category="panaderia">
+          <div class="category-icon" style="background: #FF980020; color: #FF9800;">🥖</div>
+          <span class="category-name">Panadería</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <button class="category-item" data-category="bebidas">
+          <div class="category-icon" style="background: #00BCD420; color: #00BCD4;">🥤</div>
+          <span class="category-name">Bebidas</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <button class="category-item" data-category="dulces">
+          <div class="category-icon" style="background: #E91E6320; color: #E91E63;">🍬</div>
+          <span class="category-name">Dulces y Snacks</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <button class="category-item" data-category="limpieza">
+          <div class="category-icon" style="background: #9C27B020; color: #9C27B0;">🧹</div>
+          <span class="category-name">Limpieza y hogar</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <button class="category-item" data-category="mascotas">
+          <div class="category-icon" style="background: #79554820; color: #795548;">🐕</div>
+          <span class="category-name">Mascotas</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <button class="category-item" data-category="granos">
+          <div class="category-icon" style="background: #8D6E6320; color: #8D6E63;">🍚</div>
+          <span class="category-name">Granos y Empaquetados</span>
+          <span class="arrow-right">›</span>
+        </button>
+
+        <button class="category-item" data-category="hogar">
+          <div class="category-icon" style="background: #60798020; color: #607980;">🍽</div>
+          <span class="category-name">Cocina y Hogar</span>
+          <span class="arrow-right">›</span>
+        </button>
+      </div>
+
+      <!-- Submenú de subcategorías -->
+      <div class="submenu" id="submenu">
+        <div class="submenu-header">
+          <span class="submenu-icon" id="submenuIcon">🥬</span>
+          <h3 class="submenu-title" id="submenuTitle">Frutas y Verduras</h3>
+        </div>
+        <div class="submenu-content" id="submenuContent"></div>
+      </div>
+    </div>
   </div>
 
   <!-- 🩶 FORMULARIO DE REGISTRO -->
@@ -57,42 +133,223 @@
     <section class="registro-contenedor">
       <h2>~ Registro ~</h2>
       <p>Crea tu cuenta y disfruta de una compra fácil y confiable.</p>
-
       <form id="form-registro">
         <div class="fila">
           <div class="campo">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" placeholder="Digita tu nombre" required>
           </div>
-
           <div class="campo">
             <label for="apellido">Apellidos</label>
             <input type="text" id="apellido" name="apellido" placeholder="Digita tus apellidos" required>
           </div>
         </div>
-
         <div class="fila">
           <div class="campo">
             <label for="correo">Correo Electrónico</label>
             <input type="email" id="correo" name="correo" placeholder="Digita tu correo electrónico" required>
           </div>
-
           <div class="campo">
             <label for="contrasena">Contraseña</label>
             <input type="password" id="contrasena" name="contrasena" placeholder="Digita tu contraseña" required>
           </div>
         </div>
-
         <div class="campo">
           <label for="confirmar">Confirmar Contraseña</label>
           <input type="password" id="confirmar" placeholder="Digita tu contraseña nuevamente" required>
         </div>
-
         <button type="submit" class="btn-registrar">Completar Registro</button>
       </form>
     </section>
   </main>
 
+  <!-- ✅ MODAL DE MÉTODO DE ENTREGA -->
+  <div class="modal-overlay" id="modalEntrega">
+    <div class="modal-content-delivery">
+      <button class="modal-close" onclick="cerrarModalEntrega()">✕</button>
+      <div class="modal-icon-warning">⚠️</div>
+      <h3>Inicia sesión para continuar</h3>
+      <p>Debes iniciar sesión para seleccionar un método de entrega.</p>
+      <button class="btn-modal-primary" onclick="irALogin()">Iniciar Sesión</button>
+      <button class="btn-modal-secondary" onclick="cerrarModalEntrega()">Cancelar</button>
+    </div>
+  </div>
+
   <script src="js/registro.js"></script>
+
+  <!-- ✅ JAVASCRIPT COMPLETO -->
+  <script>
+    // 📋 Datos de subcategorías
+    const subcategorias = {
+      frutas: {
+        titulo: 'Frutas y Verduras',
+        icono: '🥬',
+        items: ['General', 'Frutas frescas', 'Verduras frescas', 'Hierbas y aromáticas', 'Ensaladas listas', 'Frutas secas']
+      },
+      carnes: {
+        titulo: 'Carnes y Pescados',
+        icono: '🥩',
+        items: ['General', 'Carnes frescas', 'Pollo', 'Cerdo', 'Pescados y mariscos', 'Embutidos', 'Carnes frías']
+      },
+      lacteos: {
+        titulo: 'Lácteos y Huevos',
+        icono: '🥛',
+        items: ['General', 'Leche', 'Queso', 'Yogurt', 'Mantequilla', 'Crema', 'Huevos']
+      },
+      panaderia: {
+        titulo: 'Panadería',
+        icono: '🥖',
+        items: ['General', 'Pan fresco', 'Ponqués y tortas', 'Galletas', 'Pasabocas', 'Pan tajado']
+      },
+      bebidas: {
+        titulo: 'Bebidas',
+        icono: '🥤',
+        items: ['General', 'Gaseosas', 'Jugos', 'Café e infusiones', 'Bebidas energéticas', 'Aguas', 'Bebidas alcohólicas']
+      },
+      dulces: {
+        titulo: 'Dulces y Snacks',
+        icono: '🍬',
+        items: ['General', 'Chocolates', 'Gomas y caramelos', 'Snacks y papas', 'Galletas dulces', 'Postres']
+      },
+      limpieza: {
+        titulo: 'Limpieza y Hogar',
+        icono: '🧹',
+        items: ['General', 'Lavado de ropa', 'Aseo general', 'Baño', 'Cocina', 'Detergentes', 'Ambientadores']
+      },
+      mascotas: {
+        titulo: 'Mascotas',
+        icono: '🐕',
+        items: ['General', 'Perros', 'Gatos', 'Snacks', 'Arena y accesorios']
+      },
+      granos: {
+        titulo: 'Granos y Empaquetados',
+        icono: '🍚',
+        items: ['General', 'Arroz', 'Lentejas', 'Fríjoles', 'Garbanzos', 'Maíz', 'Avena y cereales', 'Otros empaquetados']
+      },
+      hogar: {
+        titulo: 'Cocina y Hogar',
+        icono: '🍽',
+        items: ['General', 'Utensilios de cocina', 'Vajillas', 'Cubiertos', 'Organización', 'Hogar y decoración']
+      }
+    };
+
+    // 🎯 Elementos del DOM
+    const btnCategories = document.getElementById('btnCategories');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const submenu = document.getElementById('submenu');
+    const submenuContent = document.getElementById('submenuContent');
+    const submenuTitle = document.getElementById('submenuTitle');
+    const submenuIcon = document.getElementById('submenuIcon');
+    const categoryItems = document.querySelectorAll('.category-item');
+
+    // Abrir/cerrar menú principal
+    btnCategories.addEventListener('click', (e) => {
+      e.stopPropagation();
+      btnCategories.classList.toggle('active');
+      dropdownMenu.classList.toggle('show');
+      submenu.classList.remove('show');
+    });
+
+    // Hover sobre categorías
+    categoryItems.forEach(item => {
+      item.addEventListener('mouseenter', (e) => {
+        const categoria = e.currentTarget.getAttribute('data-category');
+        mostrarSubcategorias(categoria);
+      });
+
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const categoria = e.currentTarget.getAttribute('data-category');
+        mostrarSubcategorias(categoria);
+      });
+    });
+
+    // Mostrar subcategorías
+    function mostrarSubcategorias(categoria) {
+      const datos = subcategorias[categoria];
+      if (datos) {
+        submenuIcon.textContent = datos.icono;
+        submenuTitle.textContent = datos.titulo;
+        submenuContent.innerHTML = '';
+        
+        datos.items.forEach(item => {
+          const subItem = document.createElement('button');
+          subItem.className = 'submenu-item';
+          subItem.textContent = '• ' + item;
+          subItem.onclick = () => filtrarSubcategoria(categoria, item);
+          submenuContent.appendChild(subItem);
+        });
+        
+        submenu.classList.add('show');
+      }
+    }
+
+    // Cerrar menús al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!btnCategories.contains(e.target) && 
+          !dropdownMenu.contains(e.target) && 
+          !submenu.contains(e.target)) {
+        btnCategories.classList.remove('active');
+        dropdownMenu.classList.remove('show');
+        submenu.classList.remove('show');
+      }
+    });
+
+    // Mantener submenú abierto
+    submenu.addEventListener('mouseenter', () => {
+      submenu.classList.add('show');
+    });
+
+    // Redirigir a productos
+    function filtrarSubcategoria(categoria, subcategoria) {
+      console.log('📁 Categoría:', categoria, '| 📂 Subcategoría:', subcategoria);
+      window.location.href = `productos.html?categoria=${categoria}&subcategoria=${encodeURIComponent(subcategoria)}`;
+    }
+
+    // ✅ FUNCIONALIDAD DEL MODAL DE ENTREGA
+    
+    // Verificar si el usuario está logueado
+    function verificarSesion() {
+      const clienteId = localStorage.getItem('clienteId');
+      const clienteNombre = localStorage.getItem('clienteNombre');
+      return clienteId && clienteNombre;
+    }
+
+    // Abrir modal de método de entrega
+    function abrirMetodoEntrega() {
+      if (verificarSesion()) {
+        // Si está logueado, abrir selector de método de entrega
+        alert('Aquí irá el selector de método de entrega (por implementar)');
+        // Cuando lo implementes: window.location.href = 'metodo-entrega.html';
+      } else {
+        // Si NO está logueado, mostrar modal de advertencia
+        document.getElementById('modalEntrega').classList.add('show');
+      }
+    }
+
+    // Cerrar modal
+    function cerrarModalEntrega() {
+      document.getElementById('modalEntrega').classList.remove('show');
+    }
+
+    // Ir a login
+    function irALogin() {
+      window.location.href = 'iniciar-sesion.html';
+    }
+
+    // Cerrar modal al hacer clic fuera
+    document.getElementById('modalEntrega').addEventListener('click', (e) => {
+      if (e.target.id === 'modalEntrega') {
+        cerrarModalEntrega();
+      }
+    });
+
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        cerrarModalEntrega();
+      }
+    });
+  </script>
 </body>
 </html>

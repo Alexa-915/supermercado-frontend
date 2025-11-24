@@ -8,15 +8,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- ✅ TU HEADER ORIGINAL (diseño moderno) -->
+  <!-- ✅ HEADER -->
   <header>
     <!-- 🍀 LOGO -->
     <div class="logo">
       <img src="img/logo.png" alt="Logo La Fortuna">
     </div>
 
-    <!-- 🚚 BOTÓN DE MÉTODO DE ENTREGA -->
-    <button class="btn-delivery">
+    <!-- 🚚 BOTÓN DE MÉTODO DE ENTREGA CON FUNCIONALIDAD -->
+    <button class="btn-delivery" onclick="abrirMetodoEntrega()">
       <img src="img/delivery-icon.png" alt="Delivery" class="delivery-icon">
       <div class="delivery-texto">
         <span class="delivery-label">Elige tu método de entrega</span>
@@ -44,7 +44,7 @@
     </div>
   </header>
 
-  <!-- ✅ BARRA DE CATEGORÍAS (funcionalidad de tu amiga) -->
+  <!-- ✅ BARRA DE CATEGORÍAS -->
   <div class="categorias">
     <div class="categories-container">
       <button class="btn-categorias" id="btnCategories">
@@ -122,14 +122,12 @@
           <span class="submenu-icon" id="submenuIcon">🥬</span>
           <h3 class="submenu-title" id="submenuTitle">Frutas y Verduras</h3>
         </div>
-        <div class="submenu-content" id="submenuContent">
-          <!-- Las subcategorías se cargarán dinámicamente aquí -->
-        </div>
+        <div class="submenu-content" id="submenuContent"></div>
       </div>
     </div>
   </div>
 
-  <!-- ✅ TU CONTENIDO PRINCIPAL ORIGINAL -->
+  <!-- ✅ CONTENIDO PRINCIPAL -->
   <main>
     <section class="banner">
       <img src="img/foto1.png" alt="Supermercado La Fortuna">
@@ -160,138 +158,75 @@
     </section>
   </main>
 
-  <!-- ✅ JAVASCRIPT CON DATOS DE TU AMIGA -->
+  <!-- ✅ MODAL DE MÉTODO DE ENTREGA -->
+  <div class="modal-overlay" id="modalEntrega">
+    <div class="modal-content-delivery">
+      <button class="modal-close" onclick="cerrarModalEntrega()">✕</button>
+      <div class="modal-icon-warning">⚠️</div>
+      <h3>Inicia sesión para continuar</h3>
+      <p>Debes iniciar sesión para seleccionar un método de entrega.</p>
+      <button class="btn-modal-primary" onclick="irALogin()">Iniciar Sesión</button>
+      <button class="btn-modal-secondary" onclick="cerrarModalEntrega()">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- ✅ JAVASCRIPT -->
   <script>
-  // 📋 Datos completos de subcategorías
+  // 📋 Datos de subcategorías
   const subcategorias = {
     frutas: {
       titulo: 'Frutas y Verduras',
       icono: '🥬',
-      items: [
-        'General',
-        'Frutas frescas',
-        'Verduras frescas',
-        'Hierbas y aromáticas',
-        'Ensaladas listas',
-        'Frutas secas'
-      ]
+      items: ['General', 'Frutas frescas', 'Verduras frescas', 'Hierbas y aromáticas', 'Ensaladas listas', 'Frutas secas']
     },
     carnes: {
       titulo: 'Carnes y Pescados',
       icono: '🥩',
-      items: [
-        'General',
-        'Carnes frescas',
-        'Pollo',
-        'Cerdo',
-        'Pescados y mariscos',
-        'Embutidos',
-        'Carnes frías'
-      ]
+      items: ['General', 'Carnes frescas', 'Pollo', 'Cerdo', 'Pescados y mariscos', 'Embutidos', 'Carnes frías']
     },
     lacteos: {
       titulo: 'Lácteos y Huevos',
       icono: '🥛',
-      items: [
-        'General',
-        'Leche',
-        'Queso',
-        'Yogurt',
-        'Mantequilla',
-        'Crema',
-        'Huevos'
-      ]
+      items: ['General', 'Leche', 'Queso', 'Yogurt', 'Mantequilla', 'Crema', 'Huevos']
     },
     panaderia: {
       titulo: 'Panadería',
       icono: '🥖',
-      items: [
-        'General',
-        'Pan fresco',
-        'Ponqués y tortas',
-        'Galletas',
-        'Pasabocas',
-        'Pan tajado'
-      ]
+      items: ['General', 'Pan fresco', 'Ponqués y tortas', 'Galletas', 'Pasabocas', 'Pan tajado']
     },
     bebidas: {
       titulo: 'Bebidas',
       icono: '🥤',
-      items: [
-        'General',
-        'Gaseosas',
-        'Jugos',
-        'Café e infusiones',
-        'Bebidas energéticas',
-        'Aguas',
-        'Bebidas alcohólicas'
-      ]
+      items: ['General', 'Gaseosas', 'Jugos', 'Café e infusiones', 'Bebidas energéticas', 'Aguas', 'Bebidas alcohólicas']
     },
     dulces: {
       titulo: 'Dulces y Snacks',
       icono: '🍬',
-      items: [
-        'General',
-        'Chocolates',
-        'Gomas y caramelos',
-        'Snacks y papas',
-        'Galletas dulces',
-        'Postres'
-      ]
+      items: ['General', 'Chocolates', 'Gomas y caramelos', 'Snacks y papas', 'Galletas dulces', 'Postres']
     },
     limpieza: {
       titulo: 'Limpieza y Hogar',
       icono: '🧹',
-      items: [
-        'General',
-        'Lavado de ropa',
-        'Aseo general',
-        'Baño',
-        'Cocina',
-        'Detergentes',
-        'Ambientadores'
-      ]
+      items: ['General', 'Lavado de ropa', 'Aseo general', 'Baño', 'Cocina', 'Detergentes', 'Ambientadores']
     },
     mascotas: {
       titulo: 'Mascotas',
       icono: '🐕',
-      items: [
-        'General',
-        'Perros',
-        'Gatos',
-        'Snacks',
-        'Arena y accesorios'
-      ]
+      items: ['General', 'Perros', 'Gatos', 'Snacks', 'Arena y accesorios']
     },
     granos: {
       titulo: 'Granos y Empaquetados',
       icono: '🍚',
-      items: [
-        'General',
-        'Arroz',
-        'Lentejas',
-        'Fríjoles',
-        'Garbanzos',
-        'Maíz',
-        'Avena y cereales',
-        'Otros empaquetados'
-      ]
+      items: ['General', 'Arroz', 'Lentejas', 'Fríjoles', 'Garbanzos', 'Maíz', 'Avena y cereales', 'Otros empaquetados']
     },
     hogar: {
       titulo: 'Cocina y Hogar',
       icono: '🍽',
-      items: [
-        'General',
-        'Utensilios de cocina',
-        'Vajillas',
-        'Cubiertos',
-        'Organización',
-        'Hogar y decoración'
-      ]
+      items: ['General', 'Utensilios de cocina', 'Vajillas', 'Cubiertos', 'Organización', 'Hogar y decoración']
     }
   };
 
-  // 🎯 Funcionalidad del menú
+  // 🎯 Elementos del DOM
   const btnCategories = document.getElementById('btnCategories');
   const dropdownMenu = document.getElementById('dropdownMenu');
   const submenu = document.getElementById('submenu');
@@ -358,49 +293,56 @@
     submenu.classList.add('show');
   });
 
-  // ✅ FUNCIÓN CORREGIDA - Redirige con parámetros de URL
+  // Redirigir a productos
   function filtrarSubcategoria(categoria, subcategoria) {
     console.log('📁 Categoría:', categoria, '| 📂 Subcategoría:', subcategoria);
-    // ✅ Redirigir a productos.html con parámetros
     window.location.href = `productos.html?categoria=${categoria}&subcategoria=${encodeURIComponent(subcategoria)}`;
   }
-</script>
 
-<script>
-document.getElementById("btnPagarInicio").addEventListener("click", async () => {
-    // Si no existe un carrito, enviamos algo vacío
-    const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+  // ✅ FUNCIONALIDAD DEL MODAL DE ENTREGA
+  
+  // Verificar si el usuario está logueado
+  function verificarSesion() {
+    const clienteId = localStorage.getItem('clienteId');
+    const clienteNombre = localStorage.getItem('clienteNombre');
+    return clienteId && clienteNombre;
+  }
 
-    const response = await fetch("http://localhost:3001/payments/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: carrito })
-    });
-
-    const data = await response.json();
-
-    if (data.url) {
-        window.location.href = data.url;  
+  // Abrir modal de método de entrega
+  function abrirMetodoEntrega() {
+    if (verificarSesion()) {
+      // Si está logueado, abrir selector de método de entrega
+      alert('Aquí irá el selector de método de entrega (por implementar)');
+      // Cuando lo implementes: window.location.href = 'metodo-entrega.html';
     } else {
-        alert("No se pudo iniciar el pago");
-        console.error(data);
+      // Si NO está logueado, mostrar modal de advertencia
+      document.getElementById('modalEntrega').classList.add('show');
     }
-});
-</script>
+  }
 
+  // Cerrar modal
+  function cerrarModalEntrega() {
+    document.getElementById('modalEntrega').classList.remove('show');
+  }
 
-  <!-- ✅ AQUÍ VA EL SCRIPT DE PAGO (ya lo puse ahí) -->
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const btnPagar = document.getElementById("btnPagarInicio");
-    
-    if (btnPagar) {
-      btnPagar.addEventListener("click", async () => {
-        // ... todo el código del pago
-      });
+  // Ir a login
+  function irALogin() {
+    window.location.href = 'iniciar-sesion.html';
+  }
+
+  // Cerrar modal al hacer clic fuera
+  document.getElementById('modalEntrega').addEventListener('click', (e) => {
+    if (e.target.id === 'modalEntrega') {
+      cerrarModalEntrega();
+    }
+  });
+
+  // Cerrar modal con tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      cerrarModalEntrega();
     }
   });
   </script>
-
-</body>  <!-- ← Cierre del body -->
+</body>
 </html>
