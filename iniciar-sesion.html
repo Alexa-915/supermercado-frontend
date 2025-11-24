@@ -8,11 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- ✅ HEADER COMPLETO (tu versión mejorada) -->
+  <!-- ✅ HEADER COMPLETO -->
   <header>
     <!-- 🍀 LOGO -->
     <div class="logo">
-      <img src="img/logo.png" alt="Logo La Fortuna">
+      <a href="inicio.html">
+        <img src="img/logo.png" alt="Logo La Fortuna">
+      </a>
     </div>
 
     <!-- 🚚 BOTÓN DE MÉTODO DE ENTREGA -->
@@ -44,75 +46,64 @@
     </div>
   </header>
 
-  <!-- ✅ BARRA DE CATEGORÍAS CON SISTEMA COMPLETO -->
+  <!-- ✅ BARRA DE CATEGORÍAS -->
   <div class="categorias">
     <div class="categories-container">
-      <!-- Botón principal de categorías -->
       <button class="btn-categorias" id="btnCategories">
         <span class="icono">☰</span>
         <span>Todas las categorías</span>
         <span class="flecha">▼</span>
       </button>
 
-      <!-- ✅ MENÚ DESPLEGABLE DE CATEGORÍAS -->
       <div class="dropdown-menu" id="dropdownMenu">
-        <!-- Frutas y Verduras -->
         <button class="category-item" data-category="frutas">
           <div class="category-icon" style="background: #4CAF5020; color: #4CAF50;">🥬</div>
           <span class="category-name">Frutas y verduras</span>
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Carnes y Pescados -->
         <button class="category-item" data-category="carnes">
           <div class="category-icon" style="background: #F4433620; color: #F44336;">🥩</div>
           <span class="category-name">Carnes y Pescados</span>
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Lácteos y Huevos -->
         <button class="category-item" data-category="lacteos">
           <div class="category-icon" style="background: #2196F320; color: #2196F3;">🥛</div>
           <span class="category-name">Lácteos y Huevos</span>
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Panadería -->
         <button class="category-item" data-category="panaderia">
           <div class="category-icon" style="background: #FF980020; color: #FF9800;">🥖</div>
           <span class="category-name">Panadería</span>
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Dulces -->
         <button class="category-item" data-category="dulces">
           <div class="category-icon" style="background: #E91E6320; color: #E91E63;">🍬</div>
           <span class="category-name">Dulces</span>
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Limpieza y hogar -->
         <button class="category-item" data-category="limpieza">
           <div class="category-icon" style="background: #9C27B020; color: #9C27B0;">🧹</div>
           <span class="category-name">Limpieza y hogar</span>
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Mascotas -->
         <button class="category-item" data-category="mascotas">
           <div class="category-icon" style="background: #79554820; color: #795548;">🐕</div>
           <span class="category-name">Mascotas</span>
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Bebidas -->
         <button class="category-item" data-category="bebidas">
           <div class="category-icon" style="background: #00BCD420; color: #00BCD4;">🥤</div>
           <span class="category-name">Bebidas</span>
           <span class="arrow-right">›</span>
         </button>
 
-        <!-- Aseo personal -->
         <button class="category-item" data-category="aseo">
           <div class="category-icon" style="background: #FFC10720; color: #FFC107;">🧴</div>
           <span class="category-name">Aseo personal</span>
@@ -120,26 +111,22 @@
         </button>
       </div>
 
-      <!-- ✅ SUBMENÚ DE SUBCATEGORÍAS -->
       <div class="submenu" id="submenu">
         <div class="submenu-header">
           <span class="submenu-icon" id="submenuIcon">🥬</span>
           <h3 class="submenu-title" id="submenuTitle">Frutas y Verduras</h3>
         </div>
-        <div class="submenu-content" id="submenuContent">
-          <!-- Las subcategorías se cargarán dinámicamente aquí -->
-        </div>
+        <div class="submenu-content" id="submenuContent"></div>
       </div>
     </div>
   </div>
 
-  <!-- ✅ FORMULARIO DE INICIO DE SESIÓN (versión original) -->
+  <!-- ✅ FORMULARIO DE INICIO DE SESIÓN -->
   <main>
     <section class="login-contenedor">
       <h2>~ Inicia Sesión ~</h2>
       <p>¡Qué bueno tenerte aquí!<br>Bienvenido a La Fortuna.</p>
 
-      <!-- 🔹 FORMULARIO FUNCIONAL -->
       <form id="form-login">
         <label for="correo">Correo electrónico</label>
         <input type="email" id="correo" name="correo" placeholder="Digita tu correo electrónico" required>
@@ -149,7 +136,6 @@
 
         <button type="submit" class="btn-iniciar">Iniciar Sesión</button>
 
-        <!-- 🔹 BOTÓN GOOGLE -->
         <a href="http://localhost:3001/auth/google" class="btn-google">
           <img src="img/google-icon.png" alt="Google" class="google-icon">
           Continuar con Google
@@ -162,129 +148,58 @@
     </section>
   </main>
 
-  <!-- 🧩 Conexión con JS -->
   <script src="js/login.js"></script>
 
-  <!-- ✅ JAVASCRIPT PARA CATEGORÍAS (sistema completo) -->
+  <!-- ✅ JAVASCRIPT PARA CATEGORÍAS CON REDIRECCIÓN FUNCIONANDO -->
   <script>
-    // 📋 Datos de subcategorías para cada categoría
     const subcategorias = {
       frutas: {
         titulo: 'Frutas y Verduras',
         icono: '🥬',
-        items: [
-          'General',
-          'Frutas frescas',
-          'Verduras frescas',
-          'Hierbas y aromáticas',
-          'Ensaladas listas',
-          'Frutas secas'
-        ]
+        items: ['General', 'Frutas frescas', 'Verduras frescas', 'Hierbas y aromáticas', 'Ensaladas listas', 'Frutas secas']
       },
       carnes: {
         titulo: 'Carnes y Pescados',
         icono: '🥩',
-        items: [
-          'General',
-          'Carnes de res',
-          'Pollo y aves',
-          'Cerdo',
-          'Pescados',
-          'Mariscos',
-          'Embutidos'
-        ]
+        items: ['General', 'Carnes de res', 'Pollo y aves', 'Cerdo', 'Pescados', 'Mariscos', 'Embutidos']
       },
       lacteos: {
         titulo: 'Lácteos y Huevos',
         icono: '🥛',
-        items: [
-          'General',
-          'Leche',
-          'Yogurt',
-          'Quesos',
-          'Mantequilla y margarina',
-          'Huevos',
-          'Crema de leche'
-        ]
+        items: ['General', 'Leche', 'Yogurt', 'Quesos', 'Mantequilla y margarina', 'Huevos', 'Crema de leche']
       },
       panaderia: {
         titulo: 'Panadería',
         icono: '🥖',
-        items: [
-          'General',
-          'Pan fresco',
-          'Pan empacado',
-          'Pasteles y tortas',
-          'Galletas',
-          'Productos de repostería'
-        ]
+        items: ['General', 'Pan fresco', 'Pan empacado', 'Pasteles y tortas', 'Galletas', 'Productos de repostería']
       },
       dulces: {
         titulo: 'Dulces',
         icono: '🍬',
-        items: [
-          'General',
-          'Chocolates',
-          'Caramelos',
-          'Gomitas',
-          'Snacks dulces',
-          'Postres'
-        ]
+        items: ['General', 'Chocolates', 'Caramelos', 'Gomitas', 'Snacks dulces', 'Postres']
       },
       limpieza: {
         titulo: 'Limpieza y hogar',
         icono: '🧹',
-        items: [
-          'General',
-          'Limpieza de pisos',
-          'Limpieza de baño',
-          'Limpieza de cocina',
-          'Detergentes',
-          'Desinfectantes',
-          'Papel higiénico y toallas'
-        ]
+        items: ['General', 'Limpieza de pisos', 'Limpieza de baño', 'Limpieza de cocina', 'Detergentes', 'Desinfectantes', 'Papel higiénico y toallas']
       },
       mascotas: {
         titulo: 'Mascotas',
         icono: '🐕',
-        items: [
-          'General',
-          'Alimento para perros',
-          'Alimento para gatos',
-          'Snacks y premios',
-          'Higiene',
-          'Accesorios'
-        ]
+        items: ['General', 'Alimento para perros', 'Alimento para gatos', 'Snacks y premios', 'Higiene', 'Accesorios']
       },
       bebidas: {
         titulo: 'Bebidas',
         icono: '🥤',
-        items: [
-          'General',
-          'Jugos naturales',
-          'Gaseosas',
-          'Agua',
-          'Bebidas energéticas',
-          'Té y café',
-          'Bebidas alcohólicas'
-        ]
+        items: ['General', 'Jugos naturales', 'Gaseosas', 'Agua', 'Bebidas energéticas', 'Té y café', 'Bebidas alcohólicas']
       },
       aseo: {
         titulo: 'Aseo personal',
         icono: '🧴',
-        items: [
-          'General',
-          'Jabones y geles',
-          'Shampoo y acondicionador',
-          'Cuidado dental',
-          'Desodorantes',
-          'Cuidado de la piel',
-          'Afeitado'
-        ]
+        items: ['General', 'Jabones y geles', 'Shampoo y acondicionador', 'Cuidado dental', 'Desodorantes', 'Cuidado de la piel', 'Afeitado']
       }
     };
 
-    // 🎯 Funcionalidad del menú desplegable
     const btnCategories = document.getElementById('btnCategories');
     const dropdownMenu = document.getElementById('dropdownMenu');
     const submenu = document.getElementById('submenu');
@@ -293,7 +208,6 @@
     const submenuIcon = document.getElementById('submenuIcon');
     const categoryItems = document.querySelectorAll('.category-item');
 
-    // 📂 Abrir/cerrar menú principal
     btnCategories.addEventListener('click', (e) => {
       e.stopPropagation();
       btnCategories.classList.toggle('active');
@@ -301,7 +215,6 @@
       submenu.classList.remove('show');
     });
 
-    // 🖱️ Hover sobre categorías para mostrar subcategorías
     categoryItems.forEach(item => {
       item.addEventListener('mouseenter', (e) => {
         const categoria = e.currentTarget.getAttribute('data-category');
@@ -315,18 +228,13 @@
       });
     });
 
-    // 📋 Función para mostrar subcategorías
     function mostrarSubcategorias(categoria) {
       const datos = subcategorias[categoria];
       if (datos) {
-        // Actualizar ícono y título
         submenuIcon.textContent = datos.icono;
         submenuTitle.textContent = datos.titulo;
-        
-        // Limpiar contenido anterior
         submenuContent.innerHTML = '';
         
-        // Agregar subcategorías
         datos.items.forEach(item => {
           const subItem = document.createElement('button');
           subItem.className = 'submenu-item';
@@ -339,7 +247,6 @@
       }
     }
 
-    // 🚪 Cerrar menús al hacer clic fuera
     document.addEventListener('click', (e) => {
       if (!btnCategories.contains(e.target) && 
           !dropdownMenu.contains(e.target) && 
@@ -350,17 +257,14 @@
       }
     });
 
-    // 🖱️ Mantener submenú abierto al pasar el mouse
     submenu.addEventListener('mouseenter', () => {
       submenu.classList.add('show');
     });
 
-    // 🔍 Función para filtrar por subcategoría (puedes personalizarla)
+    // ✅ FUNCIÓN CORREGIDA - Redirige a productos.html
     function filtrarSubcategoria(categoria, subcategoria) {
       console.log('📁 Categoría:', categoria, '| 📂 Subcategoría:', subcategoria);
-      // 🔹 Aquí puedes redirigir a una página de productos filtrada
-      // window.location.href = `productos.html?categoria=${categoria}&subcategoria=${subcategoria}`;
-      alert(`Filtrado por:\nCategoría: ${categoria}\nSubcategoría: ${subcategoria}`);
+      window.location.href = `productos.html?categoria=${categoria}&subcategoria=${encodeURIComponent(subcategoria)}`;
     }
   </script>
 </body>

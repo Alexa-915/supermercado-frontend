@@ -1,0 +1,557 @@
+/* 🌼 ===== ESTILO GENERAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(to bottom right, #f6f8f5, #e8f5e9);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* 🌿 ===== HEADER (igual a inicio.css) ===== */
+header {
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 20px;
+}
+
+/* 🍀 ===== LOGO ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  color: #2c5e1a;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 100px;
+  transition: transform 0.3s ease;
+  margin-top: 8px;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+/* 🚚 ===== BOTÓN DE DELIVERY ===== */
+.btn-delivery {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+  margin-left: 30px;
+}
+
+.btn-delivery:hover {
+  background-color: #f5f5f5;
+  border-color: #6DAA43;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.delivery-icon {
+  width: 75px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.delivery-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.delivery-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 🔍 ===== BARRA DE BÚSQUEDA ===== */
+.busqueda {
+  flex: 1;
+  display: flex;
+  gap: 5px;
+  margin-left: 50px;
+}
+
+.busqueda input {
+  padding: 10px;
+  border: 2px solid #7ab66f;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  outline: none;
+  background-color: #D7E0D2;
+  transition: border-color 0.3s ease;
+}
+
+.busqueda input:focus {
+  border-color: #5f9a57;
+}
+
+.busqueda button {
+  background-color: #98cc8f;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.busqueda button:hover {
+  background-color: #5f9a57;
+}
+
+/* 👤 ===== SECCIÓN DE USUARIO ===== */
+.icon-user {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-user:hover {
+  transform: scale(1.1);
+}
+
+.usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.texto-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 15px;
+}
+
+.saludo {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.login {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.login a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.login a:hover {
+  color: #5f9a57;
+}
+
+/* 🛒 ===== BOTÓN DE CARRITO ===== */
+.carrito-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.carrito-btn:hover {
+  transform: scale(1.1);
+}
+
+.carrito {
+  width: 43px;
+  height: 40px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* 🍞 ===== BREADCRUMB ===== */
+.breadcrumb {
+  background: white;
+  padding: 15px 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.breadcrumb-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.breadcrumb-content a {
+  color: #6DAA43;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb-content a:hover {
+  color: #568735;
+  text-decoration: underline;
+}
+
+.breadcrumb-content span:last-child {
+  color: #333;
+  font-weight: 600;
+}
+
+/* 📦 ===== CONTENIDO PRINCIPAL ===== */
+main {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 30px;
+}
+
+/* 🏷️ ===== ENCABEZADO DE SECCIÓN ===== */
+.section-header {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.section-icon {
+  font-size: 40px;
+  background: #f0f9ec;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.section-title h2 {
+  color: #2c5e1a;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.section-description {
+  color: #555;
+  line-height: 1.6;
+  font-size: 15px;
+  padding-left: 70px;
+}
+
+.section-description strong {
+  color: #6DAA43;
+}
+
+/* 🛒 ===== GRID DE PRODUCTOS ===== */
+.products-section {
+  animation: fadeIn 0.6s ease;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* 📦 ===== TARJETA DE PRODUCTO ===== */
+.product-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  padding: 10px;
+}
+
+.product-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-price {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.btn-add {
+  background: #6DAA43;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 8px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.btn-add:hover {
+  background: #568735;
+  transform: scale(1.05);
+}
+
+.btn-add:active {
+  transform: scale(0.98);
+}
+
+/* ⏳ ===== LOADING ===== */
+.loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #6DAA43;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+  font-size: 16px;
+}
+
+/* 🔔 ===== TOAST DE NOTIFICACIÓN ===== */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #2c5e1a;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  font-weight: 600;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* 📱 ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 15px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .btn-delivery {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .busqueda {
+    order: 2;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .busqueda input {
+    max-width: 100%;
+  }
+
+  .usuario {
+    gap: 8px;
+  }
+
+  .texto-usuario {
+    margin-right: 8px;
+  }
+
+  .saludo,
+  .login {
+    font-size: 14px;
+  }
+
+  .breadcrumb {
+    padding: 12px 20px;
+  }
+
+  .breadcrumb-content {
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+
+  main {
+    padding: 0 20px;
+    margin: 20px auto;
+  }
+
+  .section-header {
+    padding: 20px;
+  }
+
+  .section-icon {
+    font-size: 32px;
+  }
+
+  .section-title h2 {
+    font-size: 22px;
+  }
+
+  .section-description {
+    font-size: 14px;
+    padding-left: 0;
+    margin-top: 15px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .product-name {
+    font-size: 14px;
+    min-height: 35px;
+  }
+
+  .toast {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 50px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-card {
+    padding: 12px;
+  }
+
+  .product-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .btn-add {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - Supermercado La Fortuna</title>
+  <link rel="stylesheet" href="productos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ✅ HEADER MODERNO (igual a inicio.html) -->
+  <header>
+    <!-- 🍀 LOGO -->
+    <div class="logo">
+      <a href="inicio.html">
+        <img src="img/logo.png" alt="Logo La Fortuna">
+      </a>
+    </div>
+
+    <!-- 🚚 BOTÓN DE MÉTODO DE ENTREGA -->
+    <button class="btn-delivery">
+      <img src="img/delivery-icon.png" alt="Delivery" class="delivery-icon">
+      <div class="delivery-texto">
+        <span class="delivery-label">Elige tu método de entrega</span>
+      </div>
+    </button>
+
+    <!-- 🔍 BÚSQUEDA -->
+    <div class="busqueda">
+      <input type="text" id="searchInput" placeholder="¿Qué estás buscando?">
+      <button onclick="buscarProductos()">🔍</button>
+    </div>
+
+    <!-- 👤 USUARIO -->
+    <div class="usuario">
+      <a href="iniciar-sesion.html">
+        <img src="img/icon-user.png" class="icon-user" alt="Usuario">
+      </a>
+      <div class="texto-usuario">
+        <span class="saludo">¡Hola!</span>
+        <span class="login">
+          <a href="iniciar-sesion.html">Inicia sesión o regístrate</a>
+        </span>
+      </div>
+      <button class="carrito-btn" onclick="verCarrito()">
+        <img src="img/carrito.png" class="carrito" alt="Carrito">
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-content">
+      <a href="inicio.html">Inicio</a>
+      <span>›</span>
+      <span id="breadcrumbCategory">Frutas y Verduras</span>
+      <span>›</span>
+      <span id="breadcrumbSubcategory">Frutas Frescas</span>
+    </div>
+  </div>
+
+  <!-- Contenido Principal -->
+  <main>
+    <!-- Encabezado de sección -->
+    <section class="section-header">
+      <div class="section-title">
+        <span class="section-icon" id="sectionIcon">🥬</span>
+        <h2 id="sectionTitle">Frutas Y Verduras</h2>
+      </div>
+      <div class="section-description" id="sectionDescription">
+        ¡Bienvenido a la sección de <strong>Frutas Frescas</strong>!<br>
+        Descubre lo mejor de la naturaleza en cada bocado. Aquí encontrarás frutas seleccionadas, llenas de sabor, color y frescura para alegrar tus días y cuidar tu bienestar.
+      </div>
+    </section>
+
+    <!-- Grid de Productos -->
+    <section class="products-section">
+      <div class="products-grid" id="productsGrid">
+        <!-- Los productos se cargarán aquí dinámicamente -->
+        <div class="loading">Cargando productos...</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast de notificación -->
+  <div class="toast" id="toast">
+    <span id="toastMessage">Producto agregado al carrito</span>
+  </div>
+
+  <script src="js/productos.js"></script>
+</body>
+</html>
