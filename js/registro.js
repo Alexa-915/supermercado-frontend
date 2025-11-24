@@ -29,7 +29,7 @@ form.addEventListener('submit', async (e) => {
     console.log('📤 Enviando datos:', datos);
     
     // 🔹 Conectar al backend
-    const resp = await fetch('http://localhost:3001/auth/register', {
+    const resp = await fetch('https://supermercado-proyecto.onrender.com/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(datos)

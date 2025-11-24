@@ -1,5 +1,5 @@
 // js/login.js - VERSIÓN CORREGIDA
-const API_URL = 'http://localhost:3001';
+const API_URL = 'https://supermercado-proyecto.onrender.com';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('✅ Sistema de login unificado cargado');

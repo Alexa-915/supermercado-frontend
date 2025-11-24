@@ -1,6 +1,6 @@
 // js/mi-cuenta.js - VERSIÓN COMPLETA Y FUNCIONAL
 
-const API_URL = 'http://localhost:3001';
+const API_URL = 'https://supermercado-proyecto.onrender.com';
 let clienteId = null;
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -36,7 +36,7 @@ function actualizarUI() {
 // Cargar productos desde el backend
 async function cargarProductos() {
   try {
-    const response = await fetch('http://localhost:3001/productos');
+    const response = await fetch('https://supermercado-proyecto.onrender.com/productos');
     
     if (!response.ok) {
       throw new Error('Error al cargar productos');
