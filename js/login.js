@@ -1,10 +1,6 @@
-// js/login-unificado.js
-// Login unificado para clientes Y administradores
-// Detecta automáticamente el tipo de usuario
-
+// js/login.js - VERSIÓN CORREGIDA
 const API_URL = 'http://localhost:3001';
 
-// Esperar a que el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
   console.log('✅ Sistema de login unificado cargado');
   
@@ -24,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Deshabilitar botón y mostrar loading
     btnLogin.disabled = true;
     const textoOriginal = btnLogin.textContent;
     btnLogin.textContent = 'Iniciando sesión...';
@@ -32,12 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       console.log('🔐 Intentando login con:', correo);
 
-      // PASO 1: Intentar login como CLIENTE
+      // ✅ PASO 1: Intentar login como CLIENTE
       console.log('👤 Verificando si es cliente...');
       const loginCliente = await intentarLoginCliente(correo, contrasena);
       
       if (loginCliente.exito) {
         console.log('✅ Login exitoso como CLIENTE');
+        
+        // ✅ GUARDAR CORRECTAMENTE EN LOCALSTORAGE
+        const cliente = loginCliente.data.cliente;
+        localStorage.setItem('clienteId', cliente.id);
+        localStorage.setItem('clienteNombre', cliente.nombre);
+        
+        console.log('💾 Guardado en localStorage:');
+        console.log('   - clienteId:', cliente.id);
+        console.log('   - clienteNombre:', cliente.nombre);
+        
         mostrarAlerta('¡Bienvenido! Redirigiendo...', 'success');
         
         setTimeout(() => {
@@ -46,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // PASO 2: Si no es cliente, intentar login como ADMINISTRADOR
+      // ✅ PASO 2: Si no es cliente, intentar login como ADMINISTRADOR
       console.log('👨‍💼 Verificando si es administrador...');
       const loginAdmin = await intentarLoginAdmin(correo, contrasena);
       
@@ -60,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Si llegamos aquí, las credenciales son incorrectas
       console.log('❌ Usuario no encontrado en ninguna tabla');
       mostrarAlerta('Correo o contraseña incorrectos', 'error');
 
@@ -89,13 +93,24 @@ async function intentarLoginCliente(correo, contrasena) {
     });
 
     const data = await response.json();
+    console.log('📦 Respuesta del servidor (cliente):', data);
 
-    if (response.ok) {
-      // Login exitoso como cliente
-      localStorage.setItem('usuario', JSON.stringify(data.usuario || data.cliente));
+    if (response.ok && data.cliente) {
+      // ✅ GUARDAR CORRECTAMENTE EN LOCALSTORAGE
+      console.log('💾 Guardando en localStorage:');
+      console.log('   - clienteId:', data.cliente.id);
+      console.log('   - clienteNombre:', data.cliente.nombre);
+      
+      localStorage.setItem('clienteId', data.cliente.id.toString());
+      localStorage.setItem('clienteNombre', data.cliente.nombre);
+      
+      // ✅ VERIFICAR QUE SE GUARDÓ
+      console.log('✅ Verificación:');
+      console.log('   - Guardado clienteId:', localStorage.getItem('clienteId'));
+      console.log('   - Guardado clienteNombre:', localStorage.getItem('clienteNombre'));
+      
       return { exito: true, data };
     } else {
-      // Credenciales incorrectas o usuario no existe como cliente
       return { exito: false, mensaje: data.message };
     }
 
@@ -104,6 +119,7 @@ async function intentarLoginCliente(correo, contrasena) {
     return { exito: false, error };
   }
 }
+
 
 // ========================================
 // INTENTAR LOGIN COMO ADMINISTRADOR
@@ -122,11 +138,9 @@ async function intentarLoginAdmin(correo, contrasena) {
     const data = await response.json();
 
     if (response.ok) {
-      // Login exitoso como administrador
       localStorage.setItem('admin', JSON.stringify(data.admin));
       return { exito: true, data };
     } else {
-      // Credenciales incorrectas o usuario no existe como admin
       return { exito: false, mensaje: data.message };
     }
 
@@ -140,7 +154,6 @@ async function intentarLoginAdmin(correo, contrasena) {
 // MOSTRAR ALERTAS
 // ========================================
 function mostrarAlerta(mensaje, tipo = 'error') {
-  // Buscar si ya existe un contenedor de alertas
   let alertContainer = document.querySelector('.alert-container');
   
   if (!alertContainer) {
@@ -158,7 +171,6 @@ function mostrarAlerta(mensaje, tipo = 'error') {
     document.body.appendChild(alertContainer);
   }
 
-  // Crear la alerta
   const alerta = document.createElement('div');
   alerta.className = `alerta alerta-${tipo}`;
   alerta.style.cssText = `
@@ -181,7 +193,6 @@ function mostrarAlerta(mensaje, tipo = 'error') {
 
   alertContainer.appendChild(alerta);
 
-  // Remover después de 5 segundos
   setTimeout(() => {
     alerta.style.animation = 'slideUp 0.3s ease';
     setTimeout(() => {
@@ -193,7 +204,6 @@ function mostrarAlerta(mensaje, tipo = 'error') {
   }, 5000);
 }
 
-// Agregar animaciones CSS
 const style = document.createElement('style');
 style.textContent = `
   @keyframes slideDown {
@@ -220,7 +230,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Log para debugging
 console.log('📋 Endpoints configurados:');
 console.log('  👤 Clientes:', `${API_URL}/auth/login`);
 console.log('  👨‍💼 Admin:', `${API_URL}/auth/admin/login`);

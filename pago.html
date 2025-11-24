@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+  <h2>Tu compra</h2>
+
+<script>
+// 🔥 Carrito temporal para pruebas
+localStorage.setItem("carrito", JSON.stringify([
+    { nombre: "Producto de prueba", precio: 3, cantidad: 1 },
+    { nombre: "Cereal", precio: 5.5, cantidad: 2 }
+]));
+</script>
+
+  <button id="btnComprar">Comprar ahora</button>
+
+<script>
+document.getElementById("btnComprar").addEventListener("click", async () => {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    console.log("Carrito enviado:", carrito);
+    
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío");
+        return;
+    }
+
+    const response = await fetch("http://localhost:3001/payments/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ carrito })
+    });
+
+    const data = await response.json();
+
+    if (data.url) {
+        window.location.href = data.url;
+    } else {
+        alert("No se pudo iniciar el pago");
+    }
+});
+</script>
+
+</body>
+</html>

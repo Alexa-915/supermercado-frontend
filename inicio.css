@@ -641,3 +641,19 @@ main {
     font-size: 18px;
   }
 }
+
+.btn-comprar {
+    padding: 14px 25px;
+    background-color: #3cb371;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #2e8b57;
+}

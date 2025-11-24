@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Cuenta - Supermercado La Fortuna</title>
+  <link rel="stylesheet" href="mi-cuenta.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <a href="inicio-usuarios.html">
+        <img src="img/logo.png" alt="Logo La Fortuna">
+      </a>
+    </div>
+
+    <button class="btn-delivery">
+      <img src="img/delivery-icon.png" alt="Delivery" class="delivery-icon">
+      <div class="delivery-texto">
+        <span class="delivery-label">Elige tu método de entrega</span>
+      </div>
+    </button>
+
+    <div class="busqueda">
+      <input type="text" placeholder="¿Qué estás buscando?">
+      <button>🔍</button>
+    </div>
+
+    <div class="usuario">
+      <a href="mi-cuenta.html">
+        <img src="img/icon-user.png" class="icon-user" alt="Usuario">
+      </a>
+      <div class="texto-usuario">
+        <span id="saludoUsuario" class="saludo">Hola, Usuario</span>
+        <span class="login">
+          <a href="mi-cuenta.html">Mi cuenta</a>
+        </span>
+      </div>
+      <img src="img/carrito.png" class="carrito" alt="Carrito">
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="cuenta-container">
+    <!-- MENÚ LATERAL -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="avatar">
+          <img src="img/icon-user.png" alt="Avatar" id="avatarImg">
+        </div>
+        <h3 id="nombreCompleto">Gustavo Martínez</h3>
+        <p id="emailUsuario">gustavo.martinez@gmail.com</p>
+      </div>
+
+      <nav class="menu-nav">
+        <button class="menu-item active" data-section="informacion">
+          <span class="icon">👤</span>
+          Información personal
+        </button>
+        <button class="menu-item" data-section="pedidos">
+          <span class="icon">📦</span>
+          Mis pedidos
+        </button>
+        <button class="menu-item" data-section="direcciones">
+          <span class="icon">📍</span>
+          Direcciones
+        </button>
+        <button class="menu-item" data-section="seguridad">
+          <span class="icon">🔒</span>
+          Seguridad
+        </button>
+        <button class="menu-item logout" id="btnCerrarSesion">
+          <span class="icon">🚪</span>
+          Cerrar sesión
+        </button>
+      </nav>
+    </aside>
+
+    <!-- CONTENIDO DINÁMICO -->
+    <section class="content-area">
+      <!-- SECCIÓN: INFORMACIÓN PERSONAL -->
+      <div class="section active" id="informacion">
+        <h2>Información personal</h2>
+        
+        <form id="formInformacion" class="info-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+              <label>Apellido</label>
+              <input type="text" id="apellido" name="apellido" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Correo electrónico</label>
+              <input type="email" id="correo" name="correo" required disabled>
+              <small>El correo no se puede modificar</small>
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="3001234567">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Número de documento</label>
+              <input type="text" id="documento" name="documento" placeholder="123456789">
+            </div>
+            <div class="form-group">
+              <label>Género</label>
+              <select id="genero" name="genero">
+                <option value="">Selecciona</option>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Fecha de nacimiento</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+          </div>
+
+          <button type="submit" class="btn-guardar">Guardar cambios</button>
+        </form>
+      </div>
+
+      <!-- SECCIÓN: MIS PEDIDOS -->
+      <div class="section" id="pedidos">
+        <h2>Mis pedidos</h2>
+        <div id="listaPedidos" class="pedidos-list">
+          <p class="empty-state">No tienes pedidos aún</p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN: DIRECCIONES -->
+      <div class="section" id="direcciones">
+        <h2>Mis direcciones</h2>
+        <button class="btn-add" id="btnAgregarDireccion">+ Agregar dirección</button>
+        
+        <div id="listaDirecciones" class="direcciones-grid">
+          <!-- Se cargarán dinámicamente -->
+        </div>
+
+        <!-- Modal para agregar/editar dirección -->
+        <div class="modal" id="modalDireccion">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Agregar dirección</h3>
+            <form id="formDireccion">
+              <div class="form-group">
+                <label>Dirección completa</label>
+                <input type="text" id="direccion" placeholder="Calle 123 #45-67" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Ciudad</label>
+                  <input type="text" id="ciudad" placeholder="Ibagué" required>
+                </div>
+                <div class="form-group">
+                  <label>Código postal</label>
+                  <input type="text" id="codigo_postal" placeholder="730001">
+                </div>
+              </div>
+              <button type="submit" class="btn-guardar">Guardar dirección</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN: SEGURIDAD -->
+      <div class="section" id="seguridad">
+        <h2>Cambiar contraseña</h2>
+        
+        <form id="formContrasena" class="info-form">
+          <div class="form-group">
+            <label>Contraseña actual</label>
+            <input type="password" id="contrasena_actual" required>
+          </div>
+          <div class="form-group">
+            <label>Nueva contraseña</label>
+            <input type="password" id="nueva_contrasena" minlength="6" required>
+          </div>
+          <div class="form-group">
+            <label>Confirmar nueva contraseña</label>
+            <input type="password" id="confirmar_contrasena" minlength="6" required>
+          </div>
+          <button type="submit" class="btn-guardar">Actualizar contraseña</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast de notificación -->
+  <div class="toast" id="toast">
+    <span id="toastMessage"></span>
+  </div>
+
+  <script src="js/mi-cuenta.js"></script>
+</body>
+</html>

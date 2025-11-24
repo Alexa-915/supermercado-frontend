@@ -31,7 +31,6 @@
       <button>🔍</button>
     </div>
 
-    <!-- 👤 USUARIO LOGUEADO -->
     <div class="usuario">
       <a href="mi-cuenta.html">
         <img src="img/icon-user.png" class="icon-user" alt="Usuario">
@@ -165,6 +164,9 @@
       </div>
     </section>
   </main>
+
+  <!-- ✅ NUEVO: SCRIPT PARA VERIFICAR SESIÓN Y MOSTRAR NOMBRE -->
+  <script src="js/inicio-usuarios.js"></script>
 
   <!-- ✅ JAVASCRIPT PARA CATEGORÍAS (sistema completo de tu compañera) -->
   <script>
@@ -320,14 +322,10 @@
     function mostrarSubcategorias(categoria) {
       const datos = subcategorias[categoria];
       if (datos) {
-        // Actualizar ícono y título
         submenuIcon.textContent = datos.icono;
         submenuTitle.textContent = datos.titulo;
-
-        // Limpiar contenido anterior
         submenuContent.innerHTML = '';
 
-        // Agregar subcategorías
         datos.items.forEach(item => {
           const subItem = document.createElement('button');
           subItem.className = 'submenu-item';
@@ -356,25 +354,11 @@
       submenu.classList.add('show');
     });
 
-    // 🔍 Función para filtrar por subcategoría (puedes personalizarla)
+    // 🔍 Función para filtrar por subcategoría
     function filtrarSubcategoria(categoria, subcategoria) {
       console.log('📁 Categoría:', categoria, '| 📂 Subcategoría:', subcategoria);
-      // 🔹 Aquí puedes redirigir a una página de productos filtrada
-      // window.location.href = `productos.html?categoria=${categoria}&subcategoria=${subcategoria}`;
-      alert(`Filtrado por:\nCategoría: ${categoria}\nSubcategoría: ${subcategoria}`);
+      window.location.href = `productos.html?categoria=${categoria}&subcategoria=${encodeURIComponent(subcategoria)}`;
     }
-
-    // 🔥 Script para cargar el nombre del usuario (si está logueado)
-    document.addEventListener("DOMContentLoaded", () => {
-      const nombre = localStorage.getItem("clienteNombre");
-      const saludoElement = document.querySelector(".saludo");
-      const loginElement = document.querySelector(".login");
-
-      if (nombre && saludoElement && loginElement) {
-        saludoElement.textContent = `¡Hola, ${nombre}!`;
-        loginElement.innerHTML = '<a href="mi-cuenta.html">Mi cuenta</a>';
-      }
-    });
   </script>
 </body>
 

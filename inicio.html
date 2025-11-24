@@ -365,3 +365,42 @@
     window.location.href = `productos.html?categoria=${categoria}&subcategoria=${encodeURIComponent(subcategoria)}`;
   }
 </script>
+
+<script>
+document.getElementById("btnPagarInicio").addEventListener("click", async () => {
+    // Si no existe un carrito, enviamos algo vacío
+    const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+
+    const response = await fetch("http://localhost:3001/payments/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: carrito })
+    });
+
+    const data = await response.json();
+
+    if (data.url) {
+        window.location.href = data.url;  
+    } else {
+        alert("No se pudo iniciar el pago");
+        console.error(data);
+    }
+});
+</script>
+
+
+  <!-- ✅ AQUÍ VA EL SCRIPT DE PAGO (ya lo puse ahí) -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btnPagar = document.getElementById("btnPagarInicio");
+    
+    if (btnPagar) {
+      btnPagar.addEventListener("click", async () => {
+        // ... todo el código del pago
+      });
+    }
+  });
+  </script>
+
+</body>  <!-- ← Cierre del body -->
+</html>
